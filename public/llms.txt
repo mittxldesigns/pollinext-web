@@ -1,0 +1,29 @@
+# Pollinext
+
+> Pollinext is a done-for-you sales firm providing appointment setting, DM closing, and AI sales systems for coaches, consultants, agencies, and service providers. We fill your calendar with qualified sales calls and close in your voice, so you stay focused on delivering results.
+
+## Services
+- Appointment Setting: omni-channel outreach across Instagram, LinkedIn, and email that books qualified buyers straight onto your calendar.
+- DM Closing: trained closers convert conversations into sales for $100–$1,000+ offers, handling nurturing, rapport and closing in your voice.
+- AI Sales Systems: automated outreach, follow-ups, scheduling, and CRM so no qualified lead goes cold.
+- CRM & Omni-Channel: every lead researched, tagged and tracked, with daily performance reporting.
+
+## Who it is for
+Coaches, consultants, agencies, and service providers with high-ticket offers ($100–$1,000+) who want a reliable flow of qualified sales calls without building an in-house team.
+
+## Proven results
+- Achieve Greatness scaled from $10K to $50K per month in 2 months.
+- AOS Media generated over $1,000,000 in sales across its clients.
+- Thoresen Fitness booked 3 high-ticket sales in the first week.
+
+## How it works
+1. Deep-dive onboarding: map your offer, ideal client and brand voice, then plug into your CRM and channels.
+2. Deploy your sales team: trained setters and closers go live across DMs and channels, booking qualified calls daily.
+3. You close, we optimize: daily tracking, QA and data-driven tweaks compound your show rate and close rate.
+
+## Founder
+Jathin VM, Founder of Pollinext.
+
+## Contact
+- Email: jathinvm@pollinext.com
+- Website: https://pollinext.vercel.app

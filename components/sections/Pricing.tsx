@@ -34,7 +34,7 @@ export function Pricing() {
 
   return (
     <section id="pricing" className="relative px-4 py-24">
-      <Orb variant="sphere" size={520} speed={70} className="-right-52 top-10 hidden lg:block" />
+      <Orb variant="glow" size={520} speed={70} className="-right-52 top-10 hidden lg:block" />
       <div className="relative z-10 mx-auto max-w-6xl">
         <SectionHeading eyebrow={pricing.eyebrow} title={pricing.title} />
 

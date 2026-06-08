@@ -19,13 +19,22 @@ export function Results() {
       <div className="relative z-10 mx-auto max-w-6xl">
         <SectionHeading eyebrow={results.eyebrow} title={results.title} />
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-2">
+        {/* Horizontal sliding rail — screenshots scroll sideways with a thin gold border. */}
+        <div
+          role="region"
+          aria-label="Recent client work — scroll horizontally to view more cases"
+          className="no-scrollbar -mx-4 mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4"
+        >
           {results.cases.map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.07}>
-              <article className="card-grad flex h-full flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1.5">
+            <Reveal
+              key={c.title}
+              delay={i * 0.07}
+              className="w-[86vw] shrink-0 snap-start sm:w-[420px]"
+            >
+              <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-gold/30 bg-[#0d0d0d] transition-colors duration-300 hover:border-gold/55">
                 {/* proof screenshot banner */}
                 <div
-                  className="relative flex h-56 items-center justify-center overflow-hidden border-b border-line p-4"
+                  className="relative flex h-56 items-center justify-center overflow-hidden border-b border-gold/25 p-4"
                   style={{ background: tints[c.tint] ?? tints.gold }}
                 >
                   <div className="absolute inset-0 bg-black/72" />
@@ -61,6 +70,7 @@ export function Results() {
             </Reveal>
           ))}
         </div>
+        <p className="mt-3 text-center text-xs text-dim sm:hidden">Swipe to see more →</p>
 
         <Reveal className="mt-12 flex justify-center">
           <a href={results.cta.href} className="btn-dark px-6 py-3.5">

@@ -9,10 +9,10 @@ const routes: {
 }[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/how-it-works", priority: 0.8, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
   { path: "/testimonials", priority: 0.7, changeFrequency: "monthly" },
   { path: "/aboutus", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/changelog", priority: 0.2, changeFrequency: "weekly" },
   { path: "/career-setters", priority: 0.6, changeFrequency: "monthly" },
   { path: "/career-va", priority: 0.6, changeFrequency: "monthly" },
   { path: "/career-clg", priority: 0.6, changeFrequency: "monthly" },

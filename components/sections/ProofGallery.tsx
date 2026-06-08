@@ -18,17 +18,26 @@ export function ProofGallery() {
         <p className="mt-4 max-w-xl text-muted">
           Actual booking and payment confirmations from live client campaigns.
         </p>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Horizontal sliding rail of screenshots, each with a thin gold border. */}
+        <div
+          role="region"
+          aria-label="Client booking proofs — scroll horizontally to view more"
+          className="no-scrollbar -mx-4 mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4"
+        >
           {proofs.map((src, i) => (
-            <Reveal key={src} delay={i * 0.06}>
+            <Reveal
+              key={src}
+              delay={i * 0.06}
+              className="w-[72vw] shrink-0 snap-start sm:w-[320px]"
+            >
               <div
-                className="card-grad flex items-center justify-center overflow-hidden p-4"
+                className="flex items-center justify-center overflow-hidden rounded-2xl border border-gold/30 bg-[#0d0d0d] p-4 transition-colors duration-300 hover:border-gold/55"
                 style={{ minHeight: 200 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={src}
-                  alt="Client result proof"
+                  alt={`Client booking / payment confirmation ${i + 1}`}
                   loading="lazy"
                   decoding="async"
                   className="max-h-[260px] w-auto max-w-full rounded-lg shadow-lg"
@@ -37,6 +46,7 @@ export function ProofGallery() {
             </Reveal>
           ))}
         </div>
+        <p className="mt-3 text-xs text-dim sm:hidden">Swipe to see more →</p>
       </div>
     </section>
   );

@@ -75,6 +75,9 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
 
 /* ---- Typographic helpers ------------------------------------------------- */
+/* These apply to block-level headings/stat values, so they stay display:block to keep
+   centering/wrapping intact. (Inline gradient *spans* in a headline must instead use
+   the .text-shimmer pattern — inline-block + padding-bottom — to avoid descender clip.) */
 .text-gradient {
   background: linear-gradient(180deg, #ffffff 0%, #dcdcdc 140%);
   -webkit-background-clip: text;

@@ -18,11 +18,13 @@ export const brand = {
 };
 
 export const nav = {
+  // Order per client spec: About · Results · Services · Careers · Book a Call.
+  // "How it Works" was removed — its content now lives on the Services page.
+  // "Results" points at the testimonials/results page (client proof + video reviews).
   links: [
-    { label: "Services", href: "/services" },
-    { label: "How it Works", href: "/how-it-works" },
-    { label: "Testimonials", href: "/testimonials" },
     { label: "About", href: "/aboutus" },
+    { label: "Results", href: "/testimonials" },
+    { label: "Services", href: "/services" },
     { label: "Careers", href: "/career-setters" },
   ],
   cta: { label: "Book a Call", href: "/contact" },
@@ -36,18 +38,28 @@ export const hero = {
     "We help coaches, consultants and service providers scale revenue with done-for-you appointment setting and DM closing — so you stay focused on delivering results while we handle your pipeline.",
   primaryCta: { label: "Book a Call", href: "/contact" },
   secondaryCta: { label: "Explore Services", href: "/services" },
+  // Right-side hero video (gold-glow frame). Drop in the real showreel when ready:
+  // set `youtubeId` to the video id, or `mp4` to a hosted file. While both are empty
+  // the frame shows a poster + play button (links to the booking page) so it's never broken.
+  video: {
+    youtubeId: "",
+    mp4: "",
+    poster: "/founder.jpg",
+    label: "Watch how we fill calendars",
+    fallbackHref: "/contact",
+  },
 };
 
-export const trust = {
-  heading: "As featured in",
-  press: [
-    { src: "/press/wsj.png", alt: "The Wall Street Journal", invert: true },
-    { src: "/press/natgeo.png", alt: "National Geographic", invert: true },
-    { src: "/press/zeenews.png", alt: "Zee News", invert: false },
-    { src: "/press/ht.png", alt: "Hindustan Times", invert: false },
-    { src: "/press/goalcast.png", alt: "Goalcast", invert: true },
-  ],
-};
+// NOTE: the "As featured in" press band (and its <Trust/> component) was removed from
+// the homepage per the client spec (Delete section) and replaced by the stats band
+// below. The old press-logo data lives in git history if it's ever reinstated.
+
+// Homepage stats band (replaces the press band, just under the hero).
+export const homeStats = [
+  { value: "$1M+", label: "Revenue generated for clients" },
+  { value: "100+", label: "Niches & offers served" },
+  { value: "24/7", label: "Always-on pipeline" },
+];
 
 export const process = {
   eyebrow: "Process",
@@ -399,8 +411,7 @@ export const footer = {
       title: "Explore",
       links: [
         { label: "Services", href: "/services" },
-        { label: "How it Works", href: "/how-it-works" },
-        { label: "Testimonials", href: "/testimonials" },
+        { label: "Results", href: "/testimonials" },
         { label: "About", href: "/aboutus" },
         { label: "Contact", href: "/contact" },
       ],

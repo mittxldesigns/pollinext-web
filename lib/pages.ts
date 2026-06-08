@@ -252,6 +252,49 @@ export const contactPage = {
     "Whether you need clarity, strategy, or a fresh perspective, our team is ready to assist. Let's drive results together.",
 };
 
+/* ============================================================================
+   Changelog — what's shipped, newest first. Add a new entry at the top each
+   time the site changes so the whole team can see what moved.
+   ========================================================================== */
+
+export type ChangeType = "added" | "changed" | "removed" | "fixed";
+
+export type ChangelogEntry = {
+  date: string; // human-readable, e.g. "June 9, 2026"
+  iso: string; // machine-readable for <time datetime>, e.g. "2026-06-09"
+  title: string;
+  summary?: string;
+  changes: { type: ChangeType; text: string }[];
+  pending?: string[];
+};
+
+export const changelog: ChangelogEntry[] = [
+  {
+    date: "June 9, 2026",
+    iso: "2026-06-09",
+    title: "Homepage refinement pass",
+    summary:
+      "Restructured the homepage and navigation from the latest design notes — cleaner hero, no floating gold spheres, and horizontal proof rails.",
+    changes: [
+      { type: "changed", text: "Navigation reordered to About · Results · Services · Careers · Book a Call." },
+      { type: "removed", text: "Removed the standalone “How it Works” page; its full 7-step process now lives on the Services page." },
+      { type: "removed", text: "Removed the floating gold spheres from the homepage backgrounds (hero & pricing). The soft, blurred gold glow is kept." },
+      { type: "changed", text: "Replaced the “As Featured In” press-logo band with a $1M+ · 100+ · 24/7 stats band under the hero." },
+      { type: "added", text: "Redesigned the hero into two columns with a gold-glow video frame on the right (placeholder until the showreel is ready)." },
+      { type: "changed", text: "“Our Recent Work” results now slide horizontally, each card with a thin gold border." },
+      { type: "added", text: "Added the “Calls being booked daily” proof screenshots to the homepage as a horizontal rail." },
+      { type: "added", text: "Added this changelog page." },
+    ],
+    pending: [
+      "Drop in the real hero showreel video (set hero.video.youtubeId or .mp4 in lib/content.ts).",
+      "Final copywriting for every section (placeholder copy is in place).",
+      "Services section style A/B (two layout options) — pending your pick.",
+      "Dedicated Pre-Call VSL section and split Results / Testimonials pages — pending assets.",
+      "Confirm whether the small gold-sphere icons on the pricing cards should also be replaced.",
+    ],
+  },
+];
+
 export const careerPillars = [
   {
     title: "Comprehensive Training",

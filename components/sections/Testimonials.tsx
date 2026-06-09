@@ -90,29 +90,46 @@ function Card({ t }: { t: Item }) {
   );
 }
 
-export function Testimonials() {
+/**
+ * `show` lets the homepage split this into two doc sections — the video testimonials
+ * (SECTION 4) and the quote marquee (SECTION 10) — while sub-pages render both ("all").
+ */
+export function Testimonials({ show = "all" }: { show?: "all" | "video" | "marquee" } = {}) {
   const row = [...testimonials.items, ...testimonials.items];
+  const showVideos = show === "all" || show === "video";
+  const showMarquee = show === "all" || show === "marquee";
   return (
-    <section id="testimonials" className="relative px-4 py-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow={testimonials.eyebrow} title={testimonials.title} />
+    <section
+      id={show === "marquee" ? undefined : "testimonials"}
+      className="relative px-4 py-24"
+    >
+      {showVideos && (
+        <div className="mx-auto max-w-6xl">
+          <SectionHeading eyebrow={testimonials.eyebrow} title={testimonials.title} />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {testimonials.videos.map((v, i) => (
-            <Reveal key={v.src} delay={i * 0.08}>
-              <VideoCard v={v} />
-            </Reveal>
-          ))}
+          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+            {testimonials.videos.map((v, i) => (
+              <Reveal key={v.src} delay={i * 0.08}>
+                <VideoCard v={v} />
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
-      <Reveal className="group mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
-        <div className="flex w-max items-stretch gap-5 animate-marquee group-hover:[animation-play-state:paused]">
-          {row.map((t, i) => (
-            <Card key={i} t={t} />
-          ))}
-        </div>
-      </Reveal>
+      {showMarquee && (
+        <Reveal
+          className={`group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] ${
+            showVideos ? "mt-10" : ""
+          }`}
+        >
+          <div className="flex w-max items-stretch gap-5 animate-marquee group-hover:[animation-play-state:paused]">
+            {row.map((t, i) => (
+              <Card key={i} t={t} />
+            ))}
+          </div>
+        </Reveal>
+      )}
     </section>
   );
 }

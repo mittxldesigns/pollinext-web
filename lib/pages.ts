@@ -270,6 +270,24 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "June 10, 2026",
+    iso: "2026-06-10",
+    title: "Homepage rebuilt to match the design doc",
+    summary:
+      "Reordered and trimmed the homepage so it follows the design doc's section sequence exactly, and completed the Delete-section items.",
+    changes: [
+      { type: "changed", text: "Homepage now follows the doc order: Hero → Stats → Testimonials (video) → Pricing → Results → Founder → Masterclass → ROI → Testimonials (wall) → Closing." },
+      { type: "removed", text: "Deleted the hero micro-quote ribbon (the “Booking qualified calls live” pill, the $1M-in-sales quote and the Gilad Hanina chip) per the doc's Delete section." },
+      { type: "removed", text: "Removed the Process, Services grid, booking-proof, FAQ and Contact sections from the homepage (they aren't in the doc's homepage). The /services, /contact and other pages are unchanged." },
+      { type: "added", text: "Added SECTION 8 — the “Appointment Setting Masterclass” / Insights section, carried over from the old pollinext.com (video is a placeholder until the real one is supplied)." },
+      { type: "changed", text: "Split the testimonials into a video section (early) and a quote wall (later), matching the doc." },
+    ],
+    pending: [
+      "Send the real Appointment Setting Masterclass video for SECTION 8.",
+      "Confirm the homepage no longer needs the FAQ / contact-form sections (or where you'd like them placed).",
+    ],
+  },
+  {
     date: "June 9, 2026",
     iso: "2026-06-09",
     title: "Visual polish — tickers & fixes",

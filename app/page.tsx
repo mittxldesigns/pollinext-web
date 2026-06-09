@@ -2,16 +2,12 @@ import { Fragment } from "react";
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Stats } from "@/components/sections/Stats";
-import { Process } from "@/components/sections/Process";
-import { Services } from "@/components/sections/Services";
-import { Results } from "@/components/sections/Results";
-import { ProofGallery } from "@/components/sections/ProofGallery";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { Founder } from "@/components/sections/Founder";
-import { RoiCalculator } from "@/components/sections/RoiCalculator";
 import { Pricing } from "@/components/sections/Pricing";
-import { Faq } from "@/components/sections/Faq";
-import { Contact } from "@/components/sections/Contact";
+import { Results } from "@/components/sections/Results";
+import { Founder } from "@/components/sections/Founder";
+import { Vsl } from "@/components/sections/Vsl";
+import { RoiCalculator } from "@/components/sections/RoiCalculator";
 import { Closing } from "@/components/sections/Closing";
 import { revealedCount } from "@/lib/reveal";
 
@@ -19,19 +15,18 @@ import { revealedCount } from "@/lib/reveal";
 export const dynamic = "force-dynamic";
 
 export default function Home() {
+  // Order follows the client design doc, SECTION 2–11 (SECTION 1 = nav, always live;
+  // SECTION 11 = Closing, structural chrome rendered outside the drip array).
   const sections = [
-    { id: "hero", node: <Hero /> },
-    { id: "stats", node: <Stats /> },
-    { id: "process", node: <Process /> },
-    { id: "services", node: <Services /> },
-    { id: "results", node: <Results /> },
-    { id: "proof", node: <ProofGallery /> },
-    { id: "testimonials", node: <Testimonials /> },
-    { id: "founder", node: <Founder /> },
-    { id: "roi", node: <RoiCalculator /> },
-    { id: "pricing", node: <Pricing /> },
-    { id: "faqs", node: <Faq /> },
-    { id: "contact", node: <Contact /> },
+    { id: "hero", node: <Hero /> }, // S2
+    { id: "stats", node: <Stats /> }, // S3
+    { id: "testimonials-video", node: <Testimonials show="video" /> }, // S4
+    { id: "pricing", node: <Pricing /> }, // S5
+    { id: "results", node: <Results /> }, // S6
+    { id: "founder", node: <Founder /> }, // S7
+    { id: "masterclass", node: <Vsl /> }, // S8
+    { id: "roi", node: <RoiCalculator /> }, // S9
+    { id: "testimonials-marquee", node: <Testimonials show="marquee" /> }, // S10
   ];
 
   const total = sections.length;

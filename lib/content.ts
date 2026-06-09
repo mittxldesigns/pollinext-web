@@ -289,6 +289,22 @@ export const roi = {
   cta: { label: "Get My Custom Growth Plan", href: "/contact" },
 };
 
+// SECTION 8 — "Insights / Appointment Setting Masterclass" VSL (carried over from the
+// old pollinext.com site). Set `youtubeId` (or `mp4`) to the real masterclass video to
+// make it playable; until then it shows a static masterclass frame.
+export const vsl = {
+  eyebrow: "Free masterclass",
+  title: ["Insights to Strengthen Your", "Outbound & DM Sales Systems"],
+  subtitle:
+    "Discover practical strategies, sales psychology, and data-backed frameworks for improving conversions across every touchpoint.",
+  video: {
+    youtubeId: "",
+    mp4: "",
+    poster: "/founder.jpg",
+    label: "90 Mins · Appointment Setting Masterclass",
+  },
+};
+
 /* PLACEHOLDER PRICING — confirm exact figures with client before launch.
    Cards support either a numeric price (with monthly/yearly) or a "Custom" string. */
 export const pricing = {

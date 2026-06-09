@@ -12,16 +12,17 @@
 // them only if you want to stage another drip launch.
 const UNLOCKS_IST: string[] = [
   "2026-05-28T09:00", // 2  stats
-  "2026-05-28T13:30", // 3  process
-  "2026-05-28T15:00", // 4  services
+  "2026-05-28T13:30", // 3  testimonials (video)
+  "2026-05-28T15:00", // 4  pricing
   "2026-05-28T16:30", // 5  results
-  "2026-05-28T18:00", // 6  proof (calls booked daily)
-  "2026-05-28T19:30", // 7  testimonials
-  "2026-05-28T21:00", // 8  founder
-  "2026-05-28T22:30", // 9  roi
-  "2026-05-29T11:00", // 10 pricing
-  "2026-05-29T15:00", // 11 faqs
-  "2026-05-29T18:30", // 12 contact
+  "2026-05-28T18:00", // 6  founder
+  "2026-05-28T19:30", // 7  masterclass (VSL)
+  "2026-05-28T21:00", // 8  roi
+  "2026-05-28T22:30", // 9  testimonials (marquee)
+  // extra stamps below are unused now (homepage has 9 drip sections); kept for re-pacing.
+  "2026-05-29T11:00",
+  "2026-05-29T15:00",
+  "2026-05-29T18:30",
 ];
 
 /** How many sections are unlocked right now (hero always counts), capped at `total`. */

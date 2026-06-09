@@ -38,15 +38,14 @@ export const hero = {
     "We help coaches, consultants and service providers scale revenue with done-for-you appointment setting and DM closing — so you stay focused on delivering results while we handle your pipeline.",
   primaryCta: { label: "Book a Call", href: "/contact" },
   secondaryCta: { label: "Explore Services", href: "/services" },
-  // Right-side hero video (gold-glow frame). Drop in the real showreel when ready:
-  // set `youtubeId` to the video id, or `mp4` to a hosted file. While both are empty
-  // the frame shows a poster + play button (links to the booking page) so it's never broken.
+  // Right-side hero video (gold-glow frame). Swap in the real showreel when ready by
+  // changing `youtubeId` (video id) or `mp4` (hosted file). Until then it points at a real
+  // client testimonial (the one quoted above), opening on YouTube — never the contact form.
   video: {
-    youtubeId: "",
+    youtubeId: "Y81wwsnGAnI", // Gilad Hanina (AOS Media) — the testimonial quoted in the hero
     mp4: "",
-    poster: "/founder.jpg",
-    label: "Watch how we fill calendars",
-    fallbackHref: "/contact",
+    poster: "/testi/gilad.webp",
+    label: "Watch: $1M+ generated for clients",
   },
 };
 

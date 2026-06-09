@@ -73,15 +73,20 @@ export function Closing() {
                 { Icon: IgIcon, href: brand.instagram },
                 { Icon: InIcon, href: brand.linkedin },
                 { Icon: XIcon, href: brand.twitter },
-              ].map(({ Icon, href }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 text-white/70 transition-colors hover:border-white/25 hover:text-white"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
+              ]
+                // only render icons with a real destination — skip unset "#"/empty links
+                .filter(({ href }) => href && href !== "#")
+                .map(({ Icon, href }, i) => (
+                  <a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 text-white/70 transition-colors hover:border-white/25 hover:text-white"
+                  >
+                    <Icon size={16} />
+                  </a>
+                ))}
             </div>
           </div>
         </div>

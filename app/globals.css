@@ -48,6 +48,7 @@ html.lenis body {
   }
   .animate-marquee,
   .animate-marquee-fast,
+  .animate-marquee-slow,
   .animate-floaty,
   .animate-hero-float {
     animation: none !important;
@@ -218,6 +219,10 @@ input[type="range"].gold-range::-moz-range-thumb {
 }
 .animate-marquee-fast {
   animation: marquee-x 18s linear infinite;
+  will-change: transform;
+}
+.animate-marquee-slow {
+  animation: marquee-x 50s linear infinite;
   will-change: transform;
 }
 

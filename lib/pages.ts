@@ -272,6 +272,23 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "June 9, 2026",
     iso: "2026-06-09",
+    title: "Visual polish — tickers & fixes",
+    summary:
+      "Tightened the homepage visuals: proof sections now move on their own, and the hero video points somewhere useful.",
+    changes: [
+      { type: "fixed", text: "Hero video no longer opens the contact form — it now plays a real client testimonial (swap in your own showreel anytime)." },
+      { type: "changed", text: "“Our Recent Work” and “Calls being booked daily” are now smooth auto-scrolling tickers (previously a manual rail that looked stuck and cut off)." },
+      { type: "fixed", text: "Ticker edges now fade out instead of hard-cutting cards; tickers pause on hover." },
+      { type: "fixed", text: "Mobile pass — no text or image cut-offs across the homepage." },
+    ],
+    pending: [
+      "Replace the hero placeholder with your actual showreel (set hero.video.youtubeId or .mp4 in lib/content.ts).",
+      "Final copywriting and the Services A/B layout choice.",
+    ],
+  },
+  {
+    date: "June 9, 2026",
+    iso: "2026-06-09",
     title: "Homepage refinement pass",
     summary:
       "Restructured the homepage and navigation from the latest design notes — cleaner hero, no floating gold spheres, and horizontal proof rails.",

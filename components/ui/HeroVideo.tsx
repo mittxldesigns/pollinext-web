@@ -7,7 +7,7 @@ import { hero } from "@/lib/content";
  *   1. `hero.video.mp4`      → native <video controls> (no iframe, so Lenis-safe)
  *   2. `hero.video.youtubeId`→ poster that opens the video on YouTube in a new tab
  *      (an embedded iframe would be unclickable while Lenis smooth-scroll is active)
- *   3. neither set           → poster + play button linking to `fallbackHref`
+ *   3. neither set           → static poster placeholder (no link — never the contact page)
  * It is therefore never "broken" while the real showreel is still being produced.
  */
 export function HeroVideo() {
@@ -31,6 +31,7 @@ export function HeroVideo() {
       "0 0 0 1px rgba(216,168,92,0.30), 0 28px 90px -28px rgba(216,168,92,0.6)",
   } as const;
 
+  // 1. Hosted mp4 → native player.
   if (v.mp4) {
     return (
       <div className="relative">
@@ -48,41 +49,56 @@ export function HeroVideo() {
     );
   }
 
-  const href = v.youtubeId
-    ? `https://www.youtube.com/watch?v=${v.youtubeId}`
-    : v.fallbackHref;
-  const external = Boolean(v.youtubeId);
+  const inner = (
+    <>
+      {/* poster */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={v.poster}
+        alt={v.label}
+        className="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
+      {/* play button */}
+      <span className="absolute inset-0 grid place-items-center">
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-gold text-black shadow-lg transition-transform duration-300 group-hover:scale-110">
+          <Play size={26} className="ml-0.5 fill-black" />
+        </span>
+      </span>
+
+      <span className="absolute inset-x-0 bottom-0 flex items-center gap-2 p-4 text-sm font-medium text-white">
+        {v.label}
+      </span>
+    </>
+  );
+
+  // 2. YouTube id → open the real video in a new tab.
+  if (v.youtubeId) {
+    return (
+      <div className="relative">
+        {glow}
+        <a
+          href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={v.label}
+          className={`${frameClass} block`}
+          style={frameStyle}
+        >
+          {inner}
+        </a>
+      </div>
+    );
+  }
+
+  // 3. No video yet → static, non-clickable placeholder (deliberately not a link).
   return (
     <div className="relative">
       {glow}
-      <a
-        href={href}
-        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-        aria-label={v.label}
-        className={`${frameClass} block`}
-        style={frameStyle}
-      >
-        {/* poster */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={v.poster}
-          alt={v.label}
-          className="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-
-        {/* play button */}
-        <span className="absolute inset-0 grid place-items-center">
-          <span className="grid h-16 w-16 place-items-center rounded-full bg-gold text-black shadow-lg transition-transform duration-300 group-hover:scale-110">
-            <Play size={26} className="ml-0.5 fill-black" />
-          </span>
-        </span>
-
-        <span className="absolute inset-x-0 bottom-0 flex items-center gap-2 p-4 text-sm font-medium text-white">
-          {v.label}
-        </span>
-      </a>
+      <div className={frameClass} style={frameStyle} aria-label={v.label} role="img">
+        {inner}
+      </div>
     </div>
   );
 }

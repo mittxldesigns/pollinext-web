@@ -3,6 +3,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Orb } from "@/components/ui/Orb";
+import { VideoPlayer } from "@/components/ui/VideoPlayer";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { careerPillars, careers, type CareerKey } from "@/lib/pages";
 
@@ -20,11 +21,10 @@ export function CareerView({ which }: { which: CareerKey }) {
       <section className="relative px-4 pb-8">
         <div className="mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-2">
           <Reveal>
-            <a
-              href={`https://www.youtube.com/watch?v=${c.videoId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block overflow-hidden rounded-2xl border border-line bg-black"
+            <VideoPlayer
+              youtubeId={c.videoId}
+              title="Watch before you apply"
+              triggerClassName="group relative block w-full overflow-hidden rounded-2xl border border-line bg-black"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -36,7 +36,7 @@ export function CareerView({ which }: { which: CareerKey }) {
               <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-black shadow-xl transition-transform duration-300 group-hover:scale-110">
                 <Play size={24} className="ml-1" fill="currentColor" />
               </span>
-            </a>
+            </VideoPlayer>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="eyebrow">Before you apply</p>

@@ -1,12 +1,12 @@
 import { Play } from "lucide-react";
+import { VideoPlayer } from "@/components/ui/VideoPlayer";
 import { hero } from "@/lib/content";
 
 /**
  * Hero showreel frame — sits on the right of the hero with a golden glow around its
  * border (per client spec). Resolution order:
- *   1. `hero.video.mp4`      → native <video controls> (no iframe, so Lenis-safe)
- *   2. `hero.video.youtubeId`→ poster that opens the video on YouTube in a new tab
- *      (an embedded iframe would be unclickable while Lenis smooth-scroll is active)
+ *   1. `hero.video.mp4`      → native <video controls> (inline)
+ *   2. `hero.video.youtubeId`→ click opens an on-page lightbox (no external redirect)
  *   3. neither set           → static poster placeholder (no link — never the contact page)
  * It is therefore never "broken" while the real showreel is still being produced.
  */
@@ -73,21 +73,19 @@ export function HeroVideo() {
     </>
   );
 
-  // 2. YouTube id → open the real video in a new tab.
+  // 2. YouTube id → play in an on-page lightbox (no navigation away from the site).
   if (v.youtubeId) {
     return (
       <div className="relative">
         {glow}
-        <a
-          href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={v.label}
-          className={`${frameClass} block`}
-          style={frameStyle}
+        <VideoPlayer
+          youtubeId={v.youtubeId}
+          title={v.label}
+          triggerClassName={`${frameClass} block`}
+          triggerStyle={frameStyle}
         >
           {inner}
-        </a>
+        </VideoPlayer>
       </div>
     );
   }

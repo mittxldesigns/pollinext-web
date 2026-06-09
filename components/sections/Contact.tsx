@@ -96,10 +96,12 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
           <div className={`${showHeading ? "mt-10" : ""} flex flex-col gap-3`}>
             {contact.cards.map((c) => {
               const Icon = cardIcons[c.type as keyof typeof cardIcons] ?? Mail;
+              const external = c.href.startsWith("http");
               return (
                 <a
                   key={c.label}
                   href={c.href}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="card flex items-center gap-4 p-5 transition-colors hover:border-line-strong"
                 >
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-surface-2 text-gold">

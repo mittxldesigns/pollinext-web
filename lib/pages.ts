@@ -276,7 +276,8 @@ export const changelog: ChangelogEntry[] = [
     summary:
       "Tightened the homepage visuals: proof sections now move on their own, and the hero video points somewhere useful.",
     changes: [
-      { type: "fixed", text: "Hero video no longer opens the contact form — it now plays a real client testimonial (swap in your own showreel anytime)." },
+      { type: "fixed", text: "Every video (hero, testimonials, careers) now plays in an on-page popup — no more jumping out to YouTube. The page never leaves the site." },
+      { type: "changed", text: "Tightened outbound links: only the Instagram profile opens off-site (in a new tab); everything else stays on pollinext." },
       { type: "changed", text: "“Our Recent Work” and “Calls being booked daily” are now smooth auto-scrolling tickers (previously a manual rail that looked stuck and cut off)." },
       { type: "fixed", text: "Ticker edges now fade out instead of hard-cutting cards; tickers pause on hover." },
       { type: "fixed", text: "Mobile pass — no text or image cut-offs across the homepage." },

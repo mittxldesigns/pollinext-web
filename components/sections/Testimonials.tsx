@@ -1,23 +1,27 @@
 import { Quote, Play } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { VideoPlayer } from "@/components/ui/VideoPlayer";
 import { testimonials } from "@/lib/content";
 
 function initials(name: string) {
   return name.split(" ").map((s) => s[0]).join("").slice(0, 2);
 }
 
+/** Pull the YouTube id out of a watch / youtu.be / embed URL. */
+function ytId(url: string) {
+  const m =
+    url.match(/[?&]v=([^&]+)/) || url.match(/youtu\.be\/([^?]+)/) || url.match(/embed\/([^?]+)/);
+  return m ? m[1] : "";
+}
+
 type Item = (typeof testimonials.items)[number];
 type Video = (typeof testimonials.videos)[number];
 
 function VideoCard({ v }: { v: Video }) {
-  return (
-    <a
-      href={v.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative block overflow-hidden rounded-2xl border border-line bg-black"
-    >
+  const id = ytId(v.href);
+  const inner = (
+    <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={v.src}
@@ -29,7 +33,16 @@ function VideoCard({ v }: { v: Video }) {
       <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-black shadow-xl transition-transform duration-300 group-hover:scale-110">
         <Play size={24} className="ml-1" fill="currentColor" />
       </span>
-    </a>
+    </>
+  );
+  return (
+    <VideoPlayer
+      youtubeId={id}
+      title={`${v.name} — ${v.role}`}
+      triggerClassName="group relative block w-full overflow-hidden rounded-2xl border border-line bg-black"
+    >
+      {inner}
+    </VideoPlayer>
   );
 }
 

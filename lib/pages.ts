@@ -272,6 +272,24 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "June 10, 2026",
     iso: "2026-06-10",
+    title: "Call feedback — image ticker, video reels, masterclass sizing",
+    summary:
+      "Template changes from the June 10 review call. Real videos/photos/images come next from your Drive.",
+    changes: [
+      { type: "changed", text: "“Our Recent Work” is now an image-only horizontal ticker — no text cards, with the golden glow baked into each tile so the image is the focus." },
+      { type: "changed", text: "Client video testimonials now slide as vertical 9:16 reel tiles and play in a portrait popup (built to drop your re-done vertical videos straight in)." },
+      { type: "changed", text: "SECTION 8 masterclass video is larger with a stronger golden glow." },
+      { type: "changed", text: "Standardised the testimonial quote tiles to one uniform size; they now show a profile photo when provided (initials until then)." },
+    ],
+    pending: [
+      "Drive links: vertical testimonial videos, team/profile photos, and the Recent-Work tiles — recommended size 1080×1920 (9:16 portrait).",
+      "Final copy for every section.",
+      "An INR duplicate for polynext.in (send the .in services + membership differences).",
+    ],
+  },
+  {
+    date: "June 10, 2026",
+    iso: "2026-06-10",
     title: "Homepage rebuilt to match the design doc",
     summary:
       "Reordered and trimmed the homepage so it follows the design doc's section sequence exactly, and completed the Delete-section items.",

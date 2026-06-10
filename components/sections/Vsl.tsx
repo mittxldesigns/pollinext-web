@@ -9,9 +9,10 @@ export function Vsl() {
   const v = vsl.video;
 
   const frameClass =
-    "group relative mx-auto block aspect-video w-full max-w-3xl overflow-hidden rounded-2xl border border-gold/45 bg-surface-2";
+    "group relative mx-auto block aspect-video w-full max-w-4xl overflow-hidden rounded-3xl border-2 border-gold/55 bg-surface-2";
   const frameStyle = {
-    boxShadow: "0 0 0 1px rgba(216,168,92,0.30), 0 28px 90px -28px rgba(216,168,92,0.6)",
+    boxShadow:
+      "0 0 0 1px rgba(216,168,92,0.45), 0 0 60px -10px rgba(216,168,92,0.5), 0 40px 120px -30px rgba(216,168,92,0.7)",
   } as const;
 
   const inner = (
@@ -21,15 +22,15 @@ export function Vsl() {
         src={v.poster}
         alt={v.label}
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-65 transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0 h-full w-full object-cover object-top opacity-70 transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
       <span className="absolute inset-0 grid place-items-center">
-        <span className="grid h-16 w-16 place-items-center rounded-full bg-gold text-black shadow-lg transition-transform duration-300 group-hover:scale-110">
-          <Play size={26} className="ml-0.5 fill-black" />
+        <span className="grid h-20 w-20 place-items-center rounded-full bg-gold text-black shadow-xl transition-transform duration-300 group-hover:scale-110">
+          <Play size={32} className="ml-1 fill-black" />
         </span>
       </span>
-      <span className="absolute inset-x-0 bottom-0 p-5 text-center text-sm font-semibold tracking-wide text-white">
+      <span className="absolute inset-x-0 bottom-0 p-5 text-center text-base font-semibold tracking-wide text-white">
         {v.label}
       </span>
     </>
@@ -64,10 +65,10 @@ export function Vsl() {
           {/* blurred gold glow behind the frame */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[80%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-[40px] opacity-70 blur-3xl"
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[95%] w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-[48px] opacity-90 blur-3xl"
             style={{
               background:
-                "radial-gradient(60% 60% at 50% 50%, rgba(216,168,92,0.4), rgba(166,124,59,0.15) 55%, transparent 75%)",
+                "radial-gradient(60% 60% at 50% 50%, rgba(216,168,92,0.55), rgba(166,124,59,0.2) 55%, transparent 75%)",
             }}
           />
           {v.youtubeId ? (

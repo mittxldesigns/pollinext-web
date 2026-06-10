@@ -9,6 +9,8 @@ type Props = {
   /** classes for the clickable trigger (the poster/frame) */
   triggerClassName?: string;
   triggerStyle?: CSSProperties;
+  /** portrait (9:16) lightbox for vertical/reel videos */
+  portrait?: boolean;
   children: ReactNode;
 };
 
@@ -19,7 +21,14 @@ type Props = {
  * scrolling), and the overlay carries `data-lenis-prevent` so the background doesn't
  * scroll behind it. youtube-nocookie keeps it privacy-friendly.
  */
-export function VideoPlayer({ youtubeId, title, triggerClassName, triggerStyle, children }: Props) {
+export function VideoPlayer({
+  youtubeId,
+  title,
+  triggerClassName,
+  triggerStyle,
+  portrait = false,
+  children,
+}: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -64,7 +73,10 @@ export function VideoPlayer({ youtubeId, title, triggerClassName, triggerStyle, 
           onClick={() => setOpen(false)}
           className="fixed inset-0 z-[120] grid place-items-center bg-black/85 p-4 backdrop-blur-sm sm:p-8"
         >
-          <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+          <div
+            className={`relative w-full ${portrait ? "max-w-[360px]" : "max-w-4xl"}`}
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               onClick={() => setOpen(false)}
@@ -73,7 +85,11 @@ export function VideoPlayer({ youtubeId, title, triggerClassName, triggerStyle, 
             >
               <X size={18} />
             </button>
-            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-gold/40 bg-black shadow-2xl">
+            <div
+              className={`relative w-full overflow-hidden rounded-2xl border border-gold/40 bg-black shadow-2xl ${
+                portrait ? "aspect-[9/16]" : "aspect-video"
+              }`}
+            >
               <iframe
                 className="absolute inset-0 h-full w-full"
                 style={{ pointerEvents: "auto" }}

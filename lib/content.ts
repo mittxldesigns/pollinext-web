@@ -126,6 +126,16 @@ export const services = {
 export const results = {
   eyebrow: "Results",
   title: "Our Recent Work",
+  // Image-only horizontal ticker (per the June 10 call): just the proof images, no text
+  // cards. Replace these with Jathin's standardised tiles — recommended size 1080×1920
+  // (9:16 portrait), the same format as his Instagram-story proof graphics.
+  images: [
+    "/proof/p1.png",
+    "/proof/p2.png",
+    "/proof/p3.png",
+    "/proof/p4.png",
+    "/proof/p5.png",
+  ],
   cases: [
     {
       category: "Coaching",

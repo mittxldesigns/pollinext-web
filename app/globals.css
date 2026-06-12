@@ -289,18 +289,29 @@ input[type="range"].gold-range::-moz-range-thumb {
 }
 .spotlight:hover::before { opacity: 1; }
 
-/* Animated gold sheen for headline accents */
-@keyframes text-sheen { to { background-position: 200% center; } }
+/* Animated gold sheen for headline accents.
+   The gradient is a PALINDROME (first stop === last stop, stops mirrored around
+   50%) so that — with background-size:200% + the default repeat — each tile joins
+   the next with matching colours and there is NO visible seam as the sheen scrolls.
+   Do not change the end colour without changing the start colour to match. */
+@keyframes text-sheen { to { background-position: -200% center; } }
 .text-shimmer {
   display: inline-block;
   padding-bottom: 0.12em;
   line-height: 1.05;
-  background: linear-gradient(90deg, #ecd2a0 0%, #ffffff 22%, #d8a85c 50%, #ffffff 78%, #a67c3b 100%);
+  background: linear-gradient(
+    90deg,
+    #d8a85c 0%,
+    #efd6a4 27%,
+    #fff7e8 50%,
+    #efd6a4 73%,
+    #d8a85c 100%
+  );
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: text-sheen 7s linear infinite;
+  animation: text-sheen 8s linear infinite;
 }
 
 /* Film-grain overlay (rendered by <Grain/>) — premium texture over the whole page */

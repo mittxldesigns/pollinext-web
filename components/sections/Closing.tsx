@@ -64,9 +64,7 @@ export function Closing() {
           </div>
 
           <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-white/50">
-              {footer.copyright} · <span className="text-white/70">{footer.credit}</span>
-            </p>
+            <p className="text-sm text-white/50">{footer.copyright}</p>
             <div className="flex gap-2.5">
               {[
                 { Icon: YtIcon, href: brand.youtube },

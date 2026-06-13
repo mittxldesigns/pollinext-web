@@ -2,9 +2,16 @@
 
 import { useEffect, useState, type ReactNode, type CSSProperties } from "react";
 import { X } from "lucide-react";
+import { useFocusTrap } from "@/components/ui/useFocusTrap";
+import { lockScroll, unlockScroll } from "@/lib/scrollLock";
 
 type Props = {
-  youtubeId: string;
+  /** YouTube id — used when no self-hosted `mp4` is given */
+  youtubeId?: string;
+  /** self-hosted file (e.g. /testi/gilad.mp4) — takes priority over youtubeId */
+  mp4?: string;
+  /** poster shown in the lightbox before an mp4 starts */
+  poster?: string;
   title: string;
   /** classes for the clickable trigger (the poster/frame) */
   triggerClassName?: string;
@@ -23,6 +30,8 @@ type Props = {
  */
 export function VideoPlayer({
   youtubeId,
+  mp4,
+  poster,
   title,
   triggerClassName,
   triggerStyle,
@@ -30,6 +39,7 @@ export function VideoPlayer({
   children,
 }: Props) {
   const [open, setOpen] = useState(false);
+  const trapRef = useFocusTrap<HTMLDivElement>(open);
 
   useEffect(() => {
     if (!open) return;
@@ -37,11 +47,10 @@ export function VideoPlayer({
       if (e.key === "Escape") setOpen(false);
     };
     document.addEventListener("keydown", onKey);
-    const prev = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
+    lockScroll();
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.documentElement.style.overflow = prev;
+      unlockScroll();
     };
   }, [open]);
 
@@ -66,12 +75,14 @@ export function VideoPlayer({
 
       {open && (
         <div
+          ref={trapRef}
+          tabIndex={-1}
           data-lenis-prevent
           role="dialog"
           aria-modal="true"
           aria-label={title}
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-[120] grid place-items-center bg-black/85 p-4 backdrop-blur-sm sm:p-8"
+          className="fixed inset-0 z-[120] grid place-items-center bg-black/85 p-4 outline-none backdrop-blur-sm sm:p-8"
         >
           <div
             className={`relative w-full ${portrait ? "max-w-[360px]" : "max-w-4xl"}`}
@@ -81,7 +92,7 @@ export function VideoPlayer({
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close video"
-              className="absolute -top-11 right-0 grid h-9 w-9 place-items-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-white/40 hover:text-white"
+              className="absolute right-2 top-2 z-10 grid h-9 w-9 place-items-center rounded-full border border-white/20 bg-black/45 text-white/80 transition-colors hover:border-white/40 hover:text-white"
             >
               <X size={18} />
             </button>
@@ -90,15 +101,29 @@ export function VideoPlayer({
                 portrait ? "aspect-[9/16]" : "aspect-video"
               }`}
             >
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                style={{ pointerEvents: "auto" }}
-                src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-                title={title}
-                loading="lazy"
-                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                allowFullScreen
-              />
+              {mp4 ? (
+                // eslint-disable-next-line jsx-a11y/media-has-caption
+                <video
+                  className="absolute inset-0 h-full w-full"
+                  style={{ pointerEvents: "auto" }}
+                  src={mp4}
+                  poster={poster}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                />
+              ) : (
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  style={{ pointerEvents: "auto" }}
+                  src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                  title={title}
+                  loading="lazy"
+                  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                  allowFullScreen
+                />
+              )}
             </div>
           </div>
         </div>

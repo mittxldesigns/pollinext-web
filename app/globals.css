@@ -213,16 +213,17 @@ input[type="range"].gold-range::-moz-range-thumb {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+/* Speeds tuned slow enough to comfortably read content while it scrolls (June 12 feedback). */
 .animate-marquee {
-  animation: marquee-x 30s linear infinite;
+  animation: marquee-x 60s linear infinite;
   will-change: transform;
 }
 .animate-marquee-fast {
-  animation: marquee-x 18s linear infinite;
+  animation: marquee-x 40s linear infinite;
   will-change: transform;
 }
 .animate-marquee-slow {
-  animation: marquee-x 50s linear infinite;
+  animation: marquee-x 95s linear infinite;
   will-change: transform;
 }
 

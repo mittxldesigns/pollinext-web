@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { registerLenis } from "@/lib/scrollLock";
 
 /** Momentum/inertia smooth scrolling (the signature Framer feel) + eased anchor jumps. */
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
@@ -14,6 +15,9 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       smoothWheel: true,
       touchMultiplier: 1.6,
     });
+    // share the instance so modals can lenis.stop()/start() (overflow:hidden alone
+    // does not freeze Lenis-driven scrolling) — see lib/scrollLock.ts
+    registerLenis(lenis);
 
     let rafId = 0;
     const raf = (time: number) => {
@@ -38,6 +42,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return () => {
       cancelAnimationFrame(rafId);
       document.removeEventListener("click", onClick);
+      registerLenis(null);
       lenis.destroy();
     };
   }, []);

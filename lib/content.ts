@@ -44,7 +44,7 @@ export const hero = {
   video: {
     youtubeId: "Y81wwsnGAnI", // Gilad Hanina (AOS Media) — the testimonial quoted in the hero
     mp4: "",
-    poster: "/testi/gilad.webp",
+    poster: "/testi/gilad.jpg",
     label: "Watch: $1M+ generated for clients",
   },
 };
@@ -126,9 +126,10 @@ export const services = {
 export const results = {
   eyebrow: "Results",
   title: "Our Recent Work",
-  // Image-only horizontal ticker (per the June 10 call): just the proof images, no text
-  // cards. Replace these with Jathin's standardised tiles — recommended size 1080×1920
-  // (9:16 portrait), the same format as his Instagram-story proof graphics.
+  subtitle:
+    "A live snapshot of booked calls, collected payments and client wins from campaigns we run day to day.",
+  // Vertical (9:16) tiles shown whole (object-contain) inside fixed-size glow cards.
+  // STANDARD SIZE = 1080×1920 (9:16 portrait) — Jathin's Instagram-story proof format.
   images: [
     "/proof/p1.png",
     "/proof/p2.png",
@@ -205,19 +206,21 @@ export const founder = {
 export const testimonials = {
   eyebrow: "Testimonials",
   title: "What Our Clients Say",
+  subtitle:
+    "Real founders, coaches and operators on what changed once Pollinext took over their pipeline — booked calls, closed deals and revenue on autopilot.",
+  // Self-hosted vertical (9:16) reels in /public/testi (slug.mp4 + slug.jpg poster).
+  // Compressed from Jathin's raw exports — play inline in a fullscreen lightbox.
   videos: [
-    {
-      src: "/testi/gilad.webp",
-      name: "Gilad Hanina",
-      role: "Founder & CEO, AOS Media",
-      href: "https://www.youtube.com/watch?v=Y81wwsnGAnI",
-    },
-    {
-      src: "/testi/nishkarsh.webp",
-      name: "Nishkarsh Sharma",
-      role: "Founder, Digital Dukaandhar",
-      href: "https://www.youtube.com/watch?v=6q-Rm_EuSaQ",
-    },
+    { slug: "gilad", name: "Gilad Hanina", role: "Founder & CEO, AOS Media" },
+    { slug: "nishkarsh", name: "Nishkarsh Sharma", role: "Founder, Digital Dukaandhar" },
+    { slug: "anthony-trucks", name: "Anthony Trucks", role: "Ex-NFL · Coach & Author" },
+    { slug: "paul-lee", name: "Paul Lee", role: "7-Figure E-commerce Coach" },
+    { slug: "chris-pallatroni", name: "Chris Pallatroni", role: "Founder, The Standard App" },
+    { slug: "eugene-yao", name: "Eugene Yao", role: "Health & Wellness Coach" },
+    { slug: "tanner-shuck", name: "Tanner Shuck", role: "Founder, True Strength" },
+    { slug: "harut", name: "Harut", role: "YT Automation & Business Coach" },
+    { slug: "thomas", name: "Thomas Thoresen", role: "Fat Loss & Strength Coach" },
+    { slug: "shivansh", name: "Shivansh", role: "Coaching Client" },
   ],
   items: [
     {
@@ -458,5 +461,4 @@ export const footer = {
     },
   ],
   copyright: "© 2026 Pollinext. All rights reserved.",
-  credit: "Crafted by MittxlDesigns",
 };

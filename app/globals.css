@@ -80,19 +80,23 @@ body {
    paint area clips descenders (g, y, p, j). padding-bottom + a roomy line-height
    give every line enough vertical space so nothing is ever cut. Applied to ALL
    gradient text (headings + stat values), matching the .text-shimmer fix. */
-.text-gradient,
-.text-gold-gradient {
+.text-gradient {
+  /* background MUST come before background-clip: the `background` shorthand resets
+     background-clip, so declaring clip after it keeps text-clipping intact. */
+  background: linear-gradient(180deg, #ffffff 0%, #dcdcdc 140%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   padding-bottom: 0.16em;
   line-height: 1.18;
 }
-.text-gradient {
-  background: linear-gradient(180deg, #ffffff 0%, #dcdcdc 140%);
-}
 .text-gold-gradient {
   background: linear-gradient(180deg, #ecd2a0 0%, #d8a85c 52%, #a67c3b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.16em;
+  line-height: 1.18;
 }
 .eyebrow {
   color: #d8a85c;

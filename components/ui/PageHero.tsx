@@ -20,7 +20,7 @@ export function PageHero({ eyebrow, title, subtitle, children }: Props) {
         </Reveal>
         <Reveal delay={0.06}>
           <h1
-            className="text-gradient mt-4 font-semibold leading-[1.02] tracking-tight"
+            className="text-gradient mt-4 font-semibold tracking-tight"
             style={{ fontSize: "clamp(2.4rem,6vw,4.5rem)" }}
           >
             {title}

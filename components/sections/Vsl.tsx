@@ -45,7 +45,7 @@ export function Vsl() {
         </Reveal>
         <Reveal delay={0.06}>
           <h2
-            className="text-gradient mt-4 font-semibold leading-[1.05] tracking-tight"
+            className="text-gradient mt-4 font-semibold tracking-tight"
             style={{ fontSize: "clamp(1.9rem,4.2vw,3rem)" }}
           >
             {vsl.title.map((line) => (

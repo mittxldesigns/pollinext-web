@@ -6,7 +6,6 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
 import { Pricing } from "@/components/sections/Pricing";
 import { Results } from "@/components/sections/Results";
-import { CaseStudies } from "@/components/sections/CaseStudies";
 import { CallsBooked } from "@/components/sections/CallsBooked";
 import { Founder } from "@/components/sections/Founder";
 import { Vsl } from "@/components/sections/Vsl";
@@ -27,7 +26,6 @@ export default function Home() {
     { id: "who-we-help", node: <WhoWeHelp /> },
     { id: "pricing", node: <Pricing /> },
     { id: "results", node: <Results /> },
-    { id: "case-studies", node: <CaseStudies /> },
     { id: "calls-booked", node: <CallsBooked /> },
     { id: "founder", node: <Founder /> },
     { id: "masterclass", node: <Vsl /> },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SitePage } from "@/components/ui/SitePage";
 import { PageHero } from "@/components/ui/PageHero";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { CaseStudies } from "@/components/sections/CaseStudies";
 import { ProofGallery } from "@/components/sections/ProofGallery";
 import { brand } from "@/lib/content";
 
@@ -26,6 +27,7 @@ export default function TestimonialsPage() {
       </PageHero>
 
       <Testimonials />
+      <CaseStudies />
       <ProofGallery />
     </SitePage>
   );

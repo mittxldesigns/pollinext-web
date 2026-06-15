@@ -5,7 +5,6 @@ import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
 import { Pricing } from "@/components/sections/Pricing";
-import { Results } from "@/components/sections/Results";
 import { CallsBooked } from "@/components/sections/CallsBooked";
 import { Founder } from "@/components/sections/Founder";
 import { Vsl } from "@/components/sections/Vsl";
@@ -25,7 +24,6 @@ export default function Home() {
     { id: "testimonials-video", node: <Testimonials show="video" /> },
     { id: "who-we-help", node: <WhoWeHelp /> },
     { id: "pricing", node: <Pricing /> },
-    { id: "results", node: <Results /> },
     { id: "calls-booked", node: <CallsBooked /> },
     { id: "founder", node: <Founder /> },
     { id: "masterclass", node: <Vsl /> },

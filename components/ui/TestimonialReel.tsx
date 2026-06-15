@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Play, X } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useFocusTrap } from "@/components/ui/useFocusTrap";
 import { lockScroll, unlockScroll } from "@/lib/scrollLock";
 
@@ -11,17 +11,43 @@ const mp4 = (slug: string) => `/testi/${slug}.mp4`;
 const poster = (slug: string) => `/testi/${slug}.jpg`;
 
 /**
- * Auto-scrolling, centered ticker of vertical (9:16) testimonial reels.
- * Clicking a card opens a full-viewport, centered lightbox that plays the
- * self-hosted MP4. While the lightbox is open the ticker pauses, the page
- * scroll is frozen (Lenis stopped), and focus is trapped in the dialog.
+ * Vertical (9:16) testimonial reels on a horizontal rail that BOTH auto-scrolls
+ * AND can be controlled (drag, swipe, or the ◀ ▶ buttons). Auto-scroll pauses on
+ * any interaction. Clicking a card opens a full-viewport lightbox (focus-trapped,
+ * page scroll frozen). The rail content is duplicated for a seamless loop.
  */
 export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
   const [open, setOpen] = useState<ReelVideo | null>(null);
   const trapRef = useFocusTrap<HTMLDivElement>(!!open);
-  // duplicate so the marquee loops seamlessly; the clone half is hidden from AT.
+  const railRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+  const drag = useRef<{ active: boolean; startX: number; startLeft: number; moved: boolean }>({
+    active: false,
+    startX: 0,
+    startLeft: 0,
+    moved: false,
+  });
   const row = [...videos, ...videos];
 
+  // auto-scroll loop — slow, seamless wrap at the half-way point
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const tick = () => {
+      if (!pausedRef.current && !open) {
+        rail.scrollLeft += 0.45;
+        const half = rail.scrollWidth / 2;
+        if (rail.scrollLeft >= half) rail.scrollLeft -= half;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [open]);
+
+  // lightbox lifecycle: Escape, scroll-lock
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
@@ -33,54 +59,109 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
     };
   }, [open]);
 
+  const step = useCallback((dir: 1 | -1) => {
+    const rail = railRef.current;
+    if (!rail) return;
+    const card = rail.querySelector<HTMLElement>("[data-card]");
+    const by = card ? card.offsetWidth + 20 : rail.clientWidth * 0.8;
+    rail.scrollBy({ left: dir * by, behavior: "smooth" });
+  }, []);
+
+  // pointer drag (desktop); touch uses native scroll
+  const onPointerDown = (e: React.PointerEvent) => {
+    const rail = railRef.current;
+    if (!rail || e.pointerType === "touch") return;
+    drag.current = { active: true, startX: e.clientX, startLeft: rail.scrollLeft, moved: false };
+    pausedRef.current = true;
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    const rail = railRef.current;
+    if (!rail || !drag.current.active) return;
+    const dx = e.clientX - drag.current.startX;
+    if (Math.abs(dx) > 4) drag.current.moved = true;
+    rail.scrollLeft = drag.current.startLeft - dx;
+  };
+  const endDrag = () => {
+    drag.current.active = false;
+  };
+
   return (
-    <>
-      {/* full-bleed, edge-faded ticker — symmetric so it reads centered, not offset.
-          Pauses on hover OR keyboard focus; scrollable when motion is reduced. */}
-      <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] motion-reduce:overflow-x-auto">
-        <div
-          className="flex w-max items-stretch gap-5 animate-marquee-slow group-hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]"
-          style={{ animationPlayState: open ? "paused" : undefined }}
-        >
-          {row.map((v, i) => {
-            const clone = i >= videos.length;
-            return (
-              <button
-                key={`${v.slug}-${i}`}
-                type="button"
-                onClick={() => setOpen(v)}
-                aria-hidden={clone || undefined}
-                tabIndex={clone ? -1 : undefined}
-                aria-label={`Play testimonial: ${v.name} — ${v.role}`}
-                className="group/card relative block aspect-[9/16] w-[220px] shrink-0 overflow-hidden rounded-3xl border border-gold/40 bg-black sm:w-[250px]"
-                style={{
-                  boxShadow:
-                    "0 0 0 1px rgba(216,168,92,0.25), 0 24px 70px -24px rgba(216,168,92,0.5)",
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={poster(v.slug)}
-                  alt={`${v.name} — ${v.role}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/20" />
-                <span className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-black shadow-xl transition-transform duration-300 group-hover/card:scale-110">
-                  <Play size={22} className="ml-1" fill="currentColor" />
-                </span>
-                <span className="absolute inset-x-0 bottom-0 p-4 text-left">
-                  <span className="block text-sm font-semibold text-white">{v.name}</span>
-                  <span className="block text-xs text-white/70">{v.role}</span>
-                </span>
-              </button>
-            );
-          })}
-        </div>
+    <div className="relative">
+      {/* arrow controls */}
+      <button
+        type="button"
+        onClick={() => step(-1)}
+        aria-label="Previous testimonials"
+        className="absolute -left-1 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-line bg-black/70 text-white backdrop-blur transition-colors hover:border-gold/50 hover:text-gold sm:grid"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        type="button"
+        onClick={() => step(1)}
+        aria-label="Next testimonials"
+        className="absolute -right-1 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-line bg-black/70 text-white backdrop-blur transition-colors hover:border-gold/50 hover:text-gold sm:grid"
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      <div
+        ref={railRef}
+        onMouseEnter={() => (pausedRef.current = true)}
+        onMouseLeave={() => {
+          pausedRef.current = false;
+          endDrag();
+        }}
+        onFocusCapture={() => (pausedRef.current = true)}
+        onBlurCapture={() => (pausedRef.current = false)}
+        onTouchStart={() => (pausedRef.current = true)}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        className="no-scrollbar flex cursor-grab gap-5 overflow-x-auto scroll-smooth py-2 [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] active:cursor-grabbing"
+      >
+        {row.map((v, i) => {
+          const clone = i >= videos.length;
+          return (
+            <button
+              key={`${v.slug}-${i}`}
+              data-card
+              type="button"
+              onClick={() => {
+                if (drag.current.moved) return; // ignore click that ended a drag
+                setOpen(v);
+              }}
+              aria-hidden={clone || undefined}
+              tabIndex={clone ? -1 : undefined}
+              aria-label={`Play testimonial: ${v.name} — ${v.role}`}
+              className="group/card relative block aspect-[9/16] w-[280px] shrink-0 select-none overflow-hidden rounded-3xl border border-gold/40 bg-black sm:w-[340px]"
+              style={{
+                boxShadow:
+                  "0 0 0 1px rgba(216,168,92,0.25), 0 28px 80px -26px rgba(216,168,92,0.5)",
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={poster(v.slug)}
+                alt={`${v.name} — ${v.role}`}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                className="pointer-events-none absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/20" />
+              <span className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-black shadow-xl transition-transform duration-300 group-hover/card:scale-110">
+                <Play size={26} className="ml-1" fill="currentColor" />
+              </span>
+              <span className="absolute inset-x-0 bottom-0 p-5 text-left">
+                <span className="block text-base font-semibold text-white">{v.name}</span>
+                <span className="block text-sm text-white/70">{v.role}</span>
+              </span>
+            </button>
+          );
+        })}
       </div>
 
-      {/* full-viewport centered lightbox */}
       {open && (
         <div
           ref={trapRef}
@@ -116,6 +197,6 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -28,10 +28,13 @@ export function Nav({ links = nav.links }: { links?: typeof nav.links }) {
             <img src="/logo.png" alt={brand.name} className="h-7 w-auto sm:h-8" />
           </a>
 
-          <ul className="hidden items-center gap-7 lg:flex">
+          <ul className="hidden items-center gap-8 lg:flex">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="text-sm text-muted transition-colors hover:text-white">
+                <a
+                  href={l.href}
+                  className="text-[15px] font-medium text-white/85 transition-colors hover:text-gold"
+                >
                   {l.label}
                 </a>
               </li>
@@ -44,10 +47,10 @@ export function Nav({ links = nav.links }: { links?: typeof nav.links }) {
             </a>
             <button
               onClick={() => setOpen((v) => !v)}
-              className="grid h-9 w-9 place-items-center rounded-lg border border-line text-white lg:hidden"
+              className="grid h-10 w-10 place-items-center rounded-lg border border-line-strong bg-surface-2 text-white lg:hidden"
               aria-label="Toggle menu"
             >
-              {open ? <X size={18} /> : <Menu size={18} />}
+              {open ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -59,7 +62,7 @@ export function Nav({ links = nav.links }: { links?: typeof nav.links }) {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-surface-2 hover:text-white"
+                className="rounded-lg px-3 py-3 text-base font-medium text-white transition-colors hover:bg-surface-2 hover:text-gold"
               >
                 {l.label}
               </a>
@@ -67,7 +70,7 @@ export function Nav({ links = nav.links }: { links?: typeof nav.links }) {
             <a
               href={nav.cta.href}
               onClick={() => setOpen(false)}
-              className="btn-gold mt-1 px-4 py-2.5 text-center text-sm"
+              className="btn-gold mt-2 px-4 py-3 text-center text-base font-semibold"
             >
               {nav.cta.label}
             </a>

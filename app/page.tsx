@@ -3,8 +3,11 @@ import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
 import { Pricing } from "@/components/sections/Pricing";
 import { Results } from "@/components/sections/Results";
+import { CaseStudies } from "@/components/sections/CaseStudies";
+import { CallsBooked } from "@/components/sections/CallsBooked";
 import { Founder } from "@/components/sections/Founder";
 import { Vsl } from "@/components/sections/Vsl";
 import { RoiCalculator } from "@/components/sections/RoiCalculator";
@@ -18,15 +21,18 @@ export default function Home() {
   // Order follows the client design doc, SECTION 2–11 (SECTION 1 = nav, always live;
   // SECTION 11 = Closing, structural chrome rendered outside the drip array).
   const sections = [
-    { id: "hero", node: <Hero /> }, // S2
-    { id: "stats", node: <Stats /> }, // S3
-    { id: "testimonials-video", node: <Testimonials show="video" /> }, // S4
-    { id: "pricing", node: <Pricing /> }, // S5
-    { id: "results", node: <Results /> }, // S6
-    { id: "founder", node: <Founder /> }, // S7
-    { id: "masterclass", node: <Vsl /> }, // S8
-    { id: "roi", node: <RoiCalculator /> }, // S9
-    { id: "testimonials-marquee", node: <Testimonials show="marquee" /> }, // S10
+    { id: "hero", node: <Hero /> },
+    { id: "stats", node: <Stats /> },
+    { id: "testimonials-video", node: <Testimonials show="video" /> },
+    { id: "who-we-help", node: <WhoWeHelp /> },
+    { id: "pricing", node: <Pricing /> },
+    { id: "results", node: <Results /> },
+    { id: "case-studies", node: <CaseStudies /> },
+    { id: "calls-booked", node: <CallsBooked /> },
+    { id: "founder", node: <Founder /> },
+    { id: "masterclass", node: <Vsl /> },
+    { id: "roi", node: <RoiCalculator /> },
+    { id: "testimonials-marquee", node: <Testimonials show="marquee" /> },
   ];
 
   const total = sections.length;

@@ -186,6 +186,142 @@ export const results = {
   cta: { label: "Book a Call", href: "/contact" },
 };
 
+// "Who We Help & What We Do" — carried over from the live pollinext.com (client request).
+export const whoWeHelp = {
+  eyebrow: "Who we help & what we do",
+  title: "Built for coaches, consultants & creators",
+  subtitle:
+    "We help coaches, consultants, creators and service providers build predictable revenue systems that run without them.",
+  cards: [
+    {
+      title: "Appointment Setting",
+      body: "Omni-channel appointment setting that fills your calendar with qualified buyers and keeps your high-ticket pipeline on autopilot.",
+      points: [
+        "CRM & pipeline management",
+        "Omni-channel prospecting",
+        "High-intent lead research",
+        "Qualification & scheduling",
+      ],
+      visual: "appointments",
+    },
+    {
+      title: "DM Closing",
+      body: "DM-to-sale systems for $100–$1,000+ offers, with closers handling nurturing, rapport and closing in your voice.",
+      points: [
+        "Objection-handling expertise",
+        "Performance tracking & analytics",
+        "Conversation optimization",
+        "Instagram & LinkedIn DM management",
+      ],
+      visual: "dm",
+    },
+    {
+      title: "AI Sales Systems",
+      body: "AI-driven sales systems that automate outreach, follow-ups, scheduling and CRM.",
+      points: [
+        "Multi-channel follow-up systems",
+        "Omni-channel outreach automation",
+        "Calendar & scheduling automation",
+        "CRM infrastructure setup",
+      ],
+      visual: "automation",
+    },
+  ],
+};
+
+// Case studies — video (left) + detailed write-up (right). Reuses the recent-work
+// cases; `video` is a self-hosted client testimonial reel in /public/testi.
+export const caseStudies = {
+  eyebrow: "Case studies",
+  title: "Real campaigns, real numbers",
+  subtitle:
+    "A closer look at how we built and ran the pipeline for clients across coaching, agency, fitness and personal brands.",
+  items: [
+    {
+      category: "Agency",
+      client: "AOS Media",
+      video: "gilad",
+      title: "How AOS Media generated $1M+ in sales across its clients",
+      body: "An omni-channel appointment-setting engine kept high-ticket calendars full while trained closers converted in-brand. We owned research, outreach, qualification and daily QA so the founder could stay on delivery.",
+      highlights: [
+        "Omni-channel setting across IG, LinkedIn & email",
+        "Dedicated closer team converting in the founder's voice",
+        "Daily KPI tracking & weekly optimisation",
+      ],
+      stats: [
+        { value: "$1M+", label: "Sales generated" },
+        { value: "100%", label: "Done-for-you" },
+      ],
+    },
+    {
+      category: "Coaching",
+      client: "Achieve Greatness",
+      video: "harut",
+      title: "How Achieve Greatness scaled from $10K to $50K/mo in 2 months",
+      body: "We built and deployed a dedicated setting + closing team, rebuilt the follow-up system, and tracked every metric daily — 5×-ing monthly revenue inside two months.",
+      highlights: [
+        "Dedicated setter + closer team deployed",
+        "Follow-up system rebuilt from scratch",
+        "Every metric tracked & optimised daily",
+      ],
+      stats: [
+        { value: "5×", label: "Monthly revenue" },
+        { value: "2 mo", label: "To hit $50K/mo" },
+      ],
+    },
+    {
+      category: "Fitness",
+      client: "Thoresen Fitness",
+      video: "thomas",
+      title: "How Thoresen Fitness booked 3 high-ticket sales in week one",
+      body: "From a standing start we filled the calendar with qualified buyers and closed in the founder's voice — first high-ticket sale inside seven days.",
+      highlights: [
+        "Calendar filled from a cold start",
+        "Closed in the founder's brand voice",
+        "First sale within 7 days",
+      ],
+      stats: [
+        { value: "0 → 3", label: "Closes in week 1" },
+        { value: "7 days", label: "To first sale" },
+      ],
+    },
+    {
+      category: "Personal Brand",
+      client: "Digital Dukaandhar",
+      video: "nishkarsh",
+      title: "How Digital Dukaandhar turned attention into predictable sales",
+      body: "We engineered a DM-to-call system that converted an engaged audience into booked, qualified sales calls — turning attention into a predictable pipeline.",
+      highlights: [
+        "DM-to-call conversion system",
+        "Engaged audience → booked calls",
+        "Always-on, predictable pipeline",
+      ],
+      stats: [
+        { value: "+payments", label: "Predictable pipeline" },
+        { value: "24/7", label: "Always-on setting" },
+      ],
+    },
+  ],
+};
+
+// Controllable horizontal image carousel of booking/payment proof (from pollinext.com).
+export const callsBooked = {
+  eyebrow: "Real results",
+  title: "Calls Being Booked Daily",
+  subtitle: "Actual booking and payment confirmations from live client campaigns.",
+  images: [
+    "/booked/b1.png",
+    "/booked/b2.png",
+    "/booked/b3.png",
+    "/booked/b4.png",
+    "/booked/b5.png",
+    "/booked/b6.png",
+    "/booked/b7.png",
+    "/booked/b8.png",
+    "/booked/b9.png",
+  ],
+};
+
 export const founder = {
   eyebrow: "Meet the founder",
   title: "Built by a closer, for closers",
@@ -302,20 +438,35 @@ export const roi = {
   cta: { label: "Get My Custom Growth Plan", href: "/contact" },
 };
 
-// SECTION 8 — "Insights / Appointment Setting Masterclass" VSL (carried over from the
-// old pollinext.com site). Set `youtubeId` (or `mp4`) to the real masterclass video to
-// make it playable; until then it shows a static masterclass frame.
+// SECTION 8 — Masterclass / insights. Per the client's Google-doc mockup: a row of
+// cards, each = video thumbnail on top + a "Watch Now" button below (multiple videos).
+// TODO(client): supply the real YouTube IDs. Cards with an empty `youtubeId` show the
+// poster + a disabled-looking button; set the id and the card becomes a playable thumb.
 export const vsl = {
   eyebrow: "Free masterclass",
   title: ["Insights to Strengthen Your", "Outbound & DM Sales Systems"],
   subtitle:
-    "Discover practical strategies, sales psychology, and data-backed frameworks for improving conversions across every touchpoint.",
-  video: {
-    youtubeId: "",
-    mp4: "",
-    poster: "/founder.jpg",
-    label: "90 Mins · Appointment Setting Masterclass",
-  },
+    "Discover practical strategies, sales psychology and data-backed frameworks for improving conversions across every touchpoint.",
+  videos: [
+    {
+      youtubeId: "",
+      poster: "/founder.jpg",
+      title: "Appointment Setting Masterclass",
+      duration: "90 min",
+    },
+    {
+      youtubeId: "",
+      poster: "/founder.jpg",
+      title: "DM Closing Frameworks That Convert",
+      duration: "Insight",
+    },
+    {
+      youtubeId: "",
+      poster: "/founder.jpg",
+      title: "Building an Outbound System That Scales",
+      duration: "Insight",
+    },
+  ],
 };
 
 /* PLACEHOLDER PRICING — confirm exact figures with client before launch.

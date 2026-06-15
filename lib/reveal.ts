@@ -12,15 +12,17 @@
 // them only if you want to stage another drip launch.
 const UNLOCKS_IST: string[] = [
   "2026-05-28T09:00", // 2  stats
-  "2026-05-28T13:30", // 3  testimonials (video)
-  "2026-05-28T15:00", // 4  pricing
-  "2026-05-28T16:30", // 5  results
-  "2026-05-28T18:00", // 6  founder
-  "2026-05-28T19:30", // 7  masterclass (VSL)
-  "2026-05-28T21:00", // 8  roi
-  "2026-05-28T22:30", // 9  testimonials (marquee)
-  // extra stamps below are unused now (homepage has 9 drip sections); kept for re-pacing.
-  "2026-05-29T11:00",
+  "2026-05-28T10:30", // 3  testimonials (video)
+  "2026-05-28T12:00", // 4  who-we-help
+  "2026-05-28T13:30", // 5  pricing
+  "2026-05-28T15:00", // 6  results
+  "2026-05-28T16:30", // 7  case-studies
+  "2026-05-28T18:00", // 8  calls-booked
+  "2026-05-28T19:30", // 9  founder
+  "2026-05-28T21:00", // 10 masterclass
+  "2026-05-28T22:30", // 11 roi
+  "2026-05-29T11:00", // 12 testimonials (marquee)
+  // spare past stamps for re-pacing headroom (homepage has 12 drip sections).
   "2026-05-29T15:00",
   "2026-05-29T18:30",
 ];

@@ -430,6 +430,7 @@ export const testimonials = {
       name: "Gilad Hanina",
       role: "Founder, AOS Media",
       tint: "gold",
+      photo: "/testi/avatars/gilad.jpg",
     },
     {
       quote: "We were able to 5x the business in 30 days!",
@@ -442,6 +443,7 @@ export const testimonials = {
       name: "Anthony Trucks",
       role: "Ex-NFL, Coach & Author of Identity Shift",
       tint: "amber",
+      photo: "/testi/avatars/anthony.jpg",
     },
     {
       quote: "You're a beast — easily the best I've had so far!",
@@ -467,6 +469,7 @@ export const testimonials = {
       name: "Paul Lee",
       role: "7-Figure E-commerce Coach",
       tint: "amber",
+      photo: "/testi/avatars/paul.jpg",
     },
     {
       quote:
@@ -480,6 +483,7 @@ export const testimonials = {
       name: "Chris Pallatroni",
       role: "Founder, The Standard App",
       tint: "gold",
+      photo: "/testi/avatars/chris.jpg",
     },
     {
       quote:

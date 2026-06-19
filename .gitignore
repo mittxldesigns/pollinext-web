@@ -39,3 +39,6 @@ next-env.d.ts
 # editor
 .vscode/
 .idea/
+
+# downloaded client-asset scratch (not used)
+public/testi/clients/

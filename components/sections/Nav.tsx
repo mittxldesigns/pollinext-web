@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { nav, brand } from "@/lib/content";
+
+type Child = { label: string; href: string };
+type Link = { label: string; href: string; children?: Child[] };
 
 export function Nav({ links = nav.links }: { links?: typeof nav.links }) {
   const [open, setOpen] = useState(false);
@@ -29,16 +32,43 @@ export function Nav({ links = nav.links }: { links?: typeof nav.links }) {
           </a>
 
           <ul className="hidden items-center gap-8 lg:flex">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="text-[15px] font-medium text-white/85 transition-colors hover:text-gold"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
+            {(links as Link[]).map((l) =>
+              l.children ? (
+                <li key={l.href} className="group relative">
+                  <button
+                    type="button"
+                    className="flex items-center gap-1 text-[15px] font-medium text-white/85 transition-colors group-hover:text-gold"
+                  >
+                    {l.label}
+                    <ChevronDown size={15} className="transition-transform group-hover:rotate-180" />
+                  </button>
+                  {/* hover dropdown (pt-3 keeps it reachable across the gap) */}
+                  <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+                    <ul className="min-w-[200px] rounded-xl border border-line-strong bg-black/90 p-1.5 backdrop-blur-xl">
+                      {l.children.map((c) => (
+                        <li key={c.href}>
+                          <a
+                            href={c.href}
+                            className="block rounded-lg px-3 py-2.5 text-sm font-medium text-white/85 transition-colors hover:bg-surface-2 hover:text-gold"
+                          >
+                            {c.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              ) : (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    className="text-[15px] font-medium text-white/85 transition-colors hover:text-gold"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              )
+            )}
           </ul>
 
           <div className="flex items-center gap-2">
@@ -57,15 +87,30 @@ export function Nav({ links = nav.links }: { links?: typeof nav.links }) {
 
         {open && (
           <div className="mt-3 flex flex-col gap-1 border-t border-line pt-3 lg:hidden">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-white transition-colors hover:bg-surface-2 hover:text-gold"
-              >
-                {l.label}
-              </a>
+            {(links as Link[]).map((l) => (
+              <div key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-3 text-base font-medium text-white transition-colors hover:bg-surface-2 hover:text-gold"
+                >
+                  {l.label}
+                </a>
+                {l.children && (
+                  <div className="ml-3 flex flex-col border-l border-line pl-3">
+                    {l.children.map((c) => (
+                      <a
+                        key={c.href}
+                        href={c.href}
+                        onClick={() => setOpen(false)}
+                        className="rounded-lg px-3 py-2.5 text-sm font-medium text-white/75 transition-colors hover:text-gold"
+                      >
+                        {c.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <a
               href={nav.cta.href}

@@ -22,10 +22,18 @@ export const nav = {
   // "How it Works" was removed — its content now lives on the Services page.
   // "Results" points at the testimonials/results page (client proof + video reviews).
   links: [
+    { label: "Home", href: "/" },
     { label: "About", href: "/aboutus" },
     { label: "Results", href: "/testimonials" },
     { label: "Services", href: "/services" },
-    { label: "Careers", href: "/career-setters" },
+    {
+      label: "Careers",
+      href: "/career-setters",
+      children: [
+        { label: "Appointment Setter", href: "/career-setters" },
+        { label: "Sales Closer", href: "/career-va" },
+      ],
+    },
   ],
   cta: { label: "Book a Call", href: "/contact" },
 };
@@ -324,7 +332,7 @@ export const callsBooked = {
 
 export const founder = {
   eyebrow: "Meet the founder",
-  title: "Built by a closer, for closers",
+  title: "Building impact beyond business",
   name: "Jathin VM",
   role: "Founder, Pollinext",
   image: "/founder.jpg",
@@ -332,10 +340,7 @@ export const founder = {
     "Pollinext was built on the floor of high-ticket sales — thousands of conversations, booked calls and closes across coaching, agency and personal-brand offers.",
     "Today Jathin leads a trained team of setters and closers who plug into your brand, fill your calendar with qualified buyers, and close in your voice — so you stay focused on delivering results.",
   ],
-  stats: [
-    { value: "$1M+", label: "Client sales driven" },
-    { value: "7-step", label: "Done-for-you system" },
-  ],
+  stats: [] as { value: string; label: string }[],
   cta: { label: "Work with the team", href: "/contact" },
 };
 

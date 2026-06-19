@@ -37,7 +37,7 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
     let raf = 0;
     const tick = () => {
       if (!pausedRef.current && !open) {
-        rail.scrollLeft += 0.45;
+        rail.scrollLeft += 0.6;
         const half = rail.scrollWidth / 2;
         if (rail.scrollLeft >= half) rail.scrollLeft -= half;
       }
@@ -118,7 +118,7 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
-        className="no-scrollbar flex cursor-grab gap-5 overflow-x-auto scroll-smooth py-2 [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] active:cursor-grabbing"
+        className="no-scrollbar flex cursor-grab gap-5 overflow-x-auto py-2 [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] active:cursor-grabbing"
       >
         {row.map((v, i) => {
           const clone = i >= videos.length;

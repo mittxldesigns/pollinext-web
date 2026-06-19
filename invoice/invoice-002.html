@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice PT-2026-002 · Priyansh Tyagi</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+  :root{
+    --ink:#0B1F3A;        /* deep navy */
+    --ink-soft:#2A3342;   /* body text  */
+    --muted:#7B8794;      /* secondary  */
+    --faint:#A9B2BE;      /* tertiary   */
+    --line:#E6EAF0;       /* hairlines  */
+    --line-strong:#D3DAE4;
+    --bg-soft:#F6F8FB;    /* panel tint */
+    --accent:#1F4FE0;     /* blue accent */
+    --accent-soft:#EEF2FE;
+    --paper:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  @page{size:A4;margin:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    color:var(--ink-soft);
+    background:#EDEFF3;
+    font-size:12.5px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .sheet{
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    background:var(--paper);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .topbar{
+    height:7mm;
+    background:linear-gradient(90deg,var(--ink) 0%,#15315C 55%,var(--accent) 140%);
+  }
+  .content{padding:13mm 15mm 11mm;flex:1;display:flex;flex-direction:column;}
+
+  /* ---------- header ---------- */
+  .header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;}
+  .brand .mark{
+    display:flex;align-items:center;gap:11px;margin-bottom:9px;
+  }
+  .brand .glyph{
+    width:42px;height:42px;border-radius:11px;flex:none;
+    background:linear-gradient(150deg,var(--ink),#1E4FD8);
+    color:#fff;font-weight:800;font-size:19px;letter-spacing:.5px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 12px rgba(11,31,58,.22);
+  }
+  .brand .name{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.3px;line-height:1.05;}
+  .brand .role{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;margin-top:3px;}
+  .brand .contact{margin-top:11px;font-size:11px;color:var(--muted);line-height:1.85;}
+  .brand .contact b{color:var(--ink-soft);font-weight:600;display:inline-block;width:42px;}
+
+  .doc{text-align:right;flex:none;}
+  .doc .title{font-size:33px;font-weight:800;color:var(--ink);letter-spacing:5px;line-height:1;}
+  .badge{
+    display:inline-block;margin-top:9px;
+    background:var(--accent-soft);color:var(--accent);
+    font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;border:1px solid #DCE4FC;
+  }
+  .meta{margin-top:13px;font-size:11px;line-height:1;display:block;width:64mm;margin-left:auto;text-align:left;}
+  .meta div{display:flex;justify-content:space-between;gap:22px;padding:5px 0;border-bottom:1px solid var(--line);}
+  .meta div:last-child{border-bottom:0;}
+  .meta .k{color:var(--muted);font-weight:500;}
+  .meta .v{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;}
+
+  /* ---------- parties ---------- */
+  .parties{display:flex;gap:14px;margin-top:20px;}
+  .card{
+    flex:1;background:var(--bg-soft);border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;
+  }
+  .card .label{font-size:9.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+  .card .who{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.25;}
+  .card .attn{font-size:11px;color:var(--muted);font-weight:600;margin-top:2px;}
+  .card .addr{font-size:11.5px;color:var(--ink-soft);line-height:1.65;margin-top:7px;}
+  .card .kv{margin-top:8px;font-size:11px;color:var(--muted);line-height:1.7;word-break:break-word;}
+  .card .kv b{color:var(--ink-soft);font-weight:600;}
+  .card.project .row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line-strong);font-size:11.5px;}
+  .card.project .row:last-child{border-bottom:0;}
+  .card.project .row .rk{color:var(--muted);}
+  .card.project .row .rv{color:var(--ink);font-weight:700;text-align:right;}
+
+  /* ---------- line items ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:20px;}
+  thead th{
+    font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;
+    background:var(--ink);padding:11px 14px;text-align:left;
+  }
+  thead th:first-child{border-radius:8px 0 0 8px;}
+  thead th:last-child{border-radius:0 8px 8px 0;}
+  thead th.num{text-align:right;}
+  tbody td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top;font-size:12.5px;}
+  tbody td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tbody .desc-title{font-weight:700;color:var(--ink);font-size:13px;}
+  tbody .desc-sub{color:var(--muted);font-size:11px;margin-top:3px;line-height:1.55;max-width:330px;}
+  .idx{color:var(--faint);font-weight:700;font-variant-numeric:tabular-nums;}
+
+  /* ---------- pay + totals row ---------- */
+  .payrow{display:flex;gap:16px;margin-top:20px;align-items:stretch;}
+  .pay{
+    flex:1;border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+    display:flex;gap:15px;align-items:center;
+  }
+  .pay .qr{width:108px;height:108px;flex:none;border-radius:9px;border:1px solid var(--line);padding:6px;background:#fff;}
+  .pay .qr img{width:100%;height:100%;display:block;}
+  .pay .pinfo .label{font-size:9.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+  .pay .pinfo .vpa{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.2px;}
+  .pay .pinfo .nm{font-size:11.5px;color:var(--ink-soft);margin-top:3px;font-weight:600;}
+  .pay .pinfo .hint{font-size:10.5px;color:var(--muted);margin-top:8px;line-height:1.55;max-width:215px;}
+
+  .totals{width:74mm;flex:none;display:flex;flex-direction:column;}
+  .totals .trow{display:flex;justify-content:space-between;gap:12px;padding:7px 4px;font-size:12px;border-bottom:1px solid var(--line);}
+  .totals .trow .tk{color:var(--muted);}
+  .totals .trow .tv{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;}
+  .totals .trow.muted .tv{color:var(--muted);font-weight:500;}
+  .totals .trow.paid .tv{color:#1B8A5A;font-weight:700;}
+  .due{
+    margin-top:11px;background:var(--ink);border-radius:11px;color:#fff;
+    padding:14px 16px;display:flex;justify-content:space-between;align-items:center;
+    filter:drop-shadow(0 5px 10px rgba(11,31,58,.32));
+  }
+  .due .dl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#AFC2E6;}
+  .due .dl span{display:block;color:#fff;font-size:10px;letter-spacing:.5px;font-weight:500;text-transform:none;margin-top:2px;opacity:.8;}
+  .due .dv{font-size:23px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.3px;}
+
+  /* ---------- terms ---------- */
+  .terms{margin-top:auto;padding-top:18px;}
+  .terms .label{font-size:9.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--ink);margin-bottom:8px;}
+  .terms ol{margin-left:0;list-style:none;counter-reset:t;display:grid;grid-template-columns:1fr 1fr;gap:5px 26px;}
+  .terms li{counter-increment:t;font-size:10.3px;color:var(--muted);line-height:1.5;padding-left:18px;position:relative;}
+  .terms li::before{
+    content:counter(t);position:absolute;left:0;top:1px;
+    width:13px;height:13px;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+    font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+  .terms li b{color:var(--ink-soft);font-weight:600;}
+
+  /* ---------- footer ---------- */
+  .footer{margin-top:16px;padding-top:13px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;}
+  .footer .thanks{font-size:13px;font-weight:700;color:var(--ink);}
+  .footer .thanks span{display:block;font-size:10.5px;font-weight:400;color:var(--muted);margin-top:3px;}
+  .footer .sign{text-align:right;}
+  .footer .sign .ln{font-family:'Inter';font-size:17px;font-weight:700;color:var(--ink);font-style:italic;letter-spacing:.3px;}
+  .footer .sign .cap{font-size:9.5px;color:var(--muted);letter-spacing:.6px;margin-top:6px;border-top:1px solid var(--line-strong);padding-top:5px;text-transform:uppercase;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="topbar"></div>
+    <div class="content">
+
+      <!-- HEADER -->
+      <div class="header">
+        <div class="brand">
+          <div class="mark">
+            <div class="glyph">PT</div>
+            <div>
+              <div class="name">Priyansh Tyagi</div>
+              <div class="role">Freelance Web Designer &amp; Developer</div>
+            </div>
+          </div>
+          <div class="contact">
+            <div><b>Email</b>priyanshtyagi.pt@gmail.com</div>
+            <div><b>Phone</b>+91 94588 89336</div>
+            <div><b>UPI</b>9458889336@ptyes</div>
+            <div><b>PAN</b>CABPT3057M</div>
+          </div>
+        </div>
+        <div class="doc">
+          <div class="title">INVOICE</div>
+          <div class="badge">Final 50% &mdash; Balance Payment</div>
+          <div class="meta">
+            <div><span class="k">Invoice No.</span><span class="v">PT-2026-002</span></div>
+            <div><span class="k">Issue Date</span><span class="v">18 June 2026</span></div>
+            <div><span class="k">Payment Due</span><span class="v">On Receipt</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARTIES -->
+      <div class="parties">
+        <div class="card">
+          <div class="label">Billed To</div>
+          <div class="who">Pollinext Private Limited (OPC)</div>
+          <div class="attn">Attn: Jathin Iga Mathad</div>
+          <div class="addr">
+            #35, 1st Floor, 6th B Main, J C Layout,<br>
+            Near Rajarajeshwari Temple, Devasandra,<br>
+            K.R. Puram, Bengaluru &ndash; 560036,<br>
+            Karnataka, India
+          </div>
+          <div class="kv">
+            <div><b>GSTIN</b> &nbsp;29AAQCP1070J1Z0 &nbsp;·&nbsp; State: Karnataka (29)</div>
+            <div><b>Phone</b> &nbsp;+91 88672 71027</div>
+            <div><b>Email</b> &nbsp;hey@jathinvm.com</div>
+          </div>
+        </div>
+        <div class="card project">
+          <div class="label">Project &amp; Engagement</div>
+          <div class="row"><span class="rk">Project</span><span class="rv">Website Revamp</span></div>
+          <div class="row"><span class="rk">Engagement Type</span><span class="rv">Fixed Price</span></div>
+          <div class="row"><span class="rk">Project Value</span><span class="rv">&#8377;25,000.00</span></div>
+          <div class="row"><span class="rk">Payment Stage</span><span class="rv">Balance &mdash; 50%</span></div>
+          <div class="row"><span class="rk">Status</span><span class="rv">Delivered &amp; Live</span></div>
+        </div>
+      </div>
+
+      <!-- LINE ITEMS -->
+      <table>
+        <thead>
+          <tr>
+            <th style="width:34px;">#</th>
+            <th>Description</th>
+            <th class="num" style="width:60px;">Qty</th>
+            <th class="num" style="width:110px;">Rate</th>
+            <th class="num" style="width:120px;">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="idx">01</td>
+            <td>
+              <div class="desc-title">Website Revamp &mdash; Final Balance (50%)</div>
+              <div class="desc-sub">Remaining 50% for the website revamp: UI/UX redesign, responsive front-end build, content integration, client revisions and production deployment &mdash; delivered and live.</div>
+            </td>
+            <td class="num">1</td>
+            <td class="num">&#8377;12,500.00</td>
+            <td class="num">&#8377;12,500.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- PAY + TOTALS -->
+      <div class="payrow">
+        <div class="pay">
+          <div class="qr"><img src="assets/upi-qr.png" alt="UPI payment QR code"></div>
+          <div class="pinfo">
+            <div class="label">Scan &amp; Pay via UPI</div>
+            <div class="vpa">9458889336@ptyes</div>
+            <div class="nm">Priyansh Tyagi</div>
+            <div class="hint">Scan with any UPI app (GPay, PhonePe, Paytm). Please quote <b>PT-2026-002</b> as the payment reference.</div>
+          </div>
+        </div>
+        <div class="totals">
+          <div class="trow"><span class="tk">Project Total</span><span class="tv">&#8377;25,000.00</span></div>
+          <div class="trow paid"><span class="tk">Advance &mdash; 50% (paid, PT-2026-001)</span><span class="tv">&minus;&#8377;12,500.00</span></div>
+          <div class="trow"><span class="tk">Balance &mdash; 50% (this invoice)</span><span class="tv">&#8377;12,500.00</span></div>
+          <div class="due">
+            <div class="dl">Amount Due<span>This invoice</span></div>
+            <div class="dv">&#8377;12,500.00</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TERMS -->
+      <div class="terms">
+        <div class="label">Terms &amp; Conditions</div>
+        <ol>
+          <li>This is a <b>freelance professional-services invoice. GST is not applicable.</b></li>
+          <li><b>TDS</b>, if applicable, to be deducted by the payer at the prevailing rate under the Income-tax Act, 1961.</li>
+          <li>This is the <b>final 50% balance</b> for the completed engagement; the 50% advance was settled under invoice <b>PT-2026-001</b>.</li>
+          <li>The website has been <b>delivered and deployed to production</b>; this balance is payable on receipt.</li>
+          <li>Includes the agreed scope and client revisions; further new work will be quoted separately.</li>
+          <li>Please quote the <b>invoice number</b> as the reference for the payment.</li>
+        </ol>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <div class="thanks">Thank you for your business.
+          <span>Website revamp delivered &amp; live &mdash; it was a pleasure working together.</span>
+        </div>
+        <div class="sign">
+          <div class="ln">Priyansh Tyagi</div>
+          <div class="cap">Authorised Signatory &nbsp;·&nbsp; Computer-generated invoice</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

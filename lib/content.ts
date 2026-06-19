@@ -330,6 +330,66 @@ export const callsBooked = {
   ],
 };
 
+// Problem-agitation cards — one per audience sector (final copy from client).
+export const problems = {
+  eyebrow: "The problem",
+  title: "Every sector faces the same silent revenue killers — just in different forms.",
+  cards: [
+    {
+      label: "Coaches & Consultants",
+      title: "You're the best at what you do — but you're stuck selling it yourself.",
+      desc: "Your pipeline depends entirely on you. When you stop outreaching, everything dries up. And the calls you do get? Half don't show. The other half aren't ready to buy.",
+      points: [
+        "No consistent flow of qualified calls week to week",
+        "Spending hours in DMs that never convert",
+        "Prospects go cold because follow-up falls through",
+        "High-ticket offers getting undercut by poor qualifying",
+        "Revenue tied to your personal bandwidth — not a system",
+      ],
+      footer: "You can't scale what depends entirely on you showing up every day.",
+    },
+    {
+      label: "Course Creators",
+      title: "You've built the course. Now you're stuck trying to fill it every launch.",
+      desc: "Launches are exhausting and inconsistent. Your audience engages with your content but doesn't convert. And between launches, enrolments drop to near zero with no system keeping leads warm.",
+      points: [
+        "Launch fatigue — the same effort, shrinking returns",
+        "Warm leads going cold between launch windows",
+        "DMs piling up with no one to manage or close them",
+        "No evergreen enrolment system running outside launches",
+        "Cart abandons and objections left unaddressed",
+      ],
+      footer: "A great course with a broken enrolment system is just an expensive PDF.",
+    },
+    {
+      label: "Community Owners (Skool etc.)",
+      title: "Your community grows — but paid membership conversions don't follow.",
+      desc: "Free members browse but never upgrade. You're running content, managing members, and somehow also expected to personally DM and enrol new paying members. The community runs you, not the other way round.",
+      points: [
+        "Free-to-paid conversion stuck despite active engagement",
+        "No one managing upgrade conversations in the DMs",
+        "Member churn from lack of nurture and follow-up",
+        "Enrolment spikes during launches, flatlines in between",
+        "You're the setter, the closer, and the host — all at once",
+      ],
+      footer: "A community that doesn't convert consistently isn't a business — it's a group chat.",
+    },
+    {
+      label: "Service Providers & Agencies",
+      title: "You're great at delivery — but acquisition is still a guessing game.",
+      desc: "Referrals dry up. Cold outreach is inconsistent. And when you do land a call, you're closing it yourself after a full day of client work. Growth stays flat because the pipeline never runs without you in it.",
+      points: [
+        "Pipeline built on referrals with no predictable outbound",
+        "Outreach too sporadic to create real momentum",
+        "No dedicated setter or closer — it all falls on you",
+        "Leads going cold while you're heads-down in delivery",
+        "Feast-or-famine cycles that make revenue unpredictable",
+      ],
+      footer: "You built a great service business. You shouldn't still be doing your own sales.",
+    },
+  ],
+};
+
 export const founder = {
   eyebrow: "Meet the founder",
   title: "Building impact beyond business",

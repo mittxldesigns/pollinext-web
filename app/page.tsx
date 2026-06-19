@@ -3,6 +3,7 @@ import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Stats } from "@/components/sections/Stats";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { Problems } from "@/components/sections/Problems";
 import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
 import { Pricing } from "@/components/sections/Pricing";
 import { CallsBooked } from "@/components/sections/CallsBooked";
@@ -22,6 +23,7 @@ export default function Home() {
     { id: "hero", node: <Hero /> },
     { id: "stats", node: <Stats /> },
     { id: "testimonials-video", node: <Testimonials show="video" /> },
+    { id: "problems", node: <Problems /> },
     { id: "who-we-help", node: <WhoWeHelp /> },
     { id: "pricing", node: <Pricing /> },
     { id: "calls-booked", node: <CallsBooked /> },

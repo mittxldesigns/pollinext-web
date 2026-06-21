@@ -148,14 +148,6 @@ body {
   border-radius: 24px;
 }
 
-/* thumbnail frame for the calls-booked carousel — matches the results-page
-   case-study frame (rounded + thin gold border, clipped corners). */
-.media-card {
-  border-radius: 16px;
-  border: 1px solid rgba(216, 168, 92, 0.4);
-  overflow: hidden;
-}
-
 /* gold-tinted fill used for active toggle / subtle gold panels */
 .gold-soft {
   background: linear-gradient(180deg, rgba(216, 168, 92, 0.16), rgba(216, 168, 92, 0.04));

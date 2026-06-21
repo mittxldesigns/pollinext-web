@@ -107,6 +107,18 @@ export function Vsl() {
             );
           })}
         </div>
+
+        {/* Section-level CTA -> YouTube channel (per client doc, SECTION 8) */}
+        <Reveal delay={0.1} className="mt-12 flex justify-center">
+          <a
+            href={vsl.viewMore.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold flex items-center gap-1.5 px-7 py-3.5"
+          >
+            {vsl.viewMore.label} <ArrowUpRight size={16} />
+          </a>
+        </Reveal>
       </div>
     </section>
   );

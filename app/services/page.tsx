@@ -82,6 +82,13 @@ export default function ServicesPage() {
               </div>
             </Reveal>
           ))}
+
+          {/* CTA below the services list (per client doc — book-a-call under section 4) */}
+          <Reveal className="flex justify-center pt-4">
+            <a href={brand.bookingUrl} className="btn-gold px-8 py-3.5">
+              Book a Call
+            </a>
+          </Reveal>
         </div>
       </section>
 

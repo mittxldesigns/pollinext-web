@@ -179,7 +179,7 @@ export const servicesPage = {
     eyebrow: "Services",
     title: ["Fill Your Calendar.", "Close More Deals."],
     subtitle:
-      "We handle appointment setting and DM closing so you can focus on what you do best — delivering results for your clients.",
+      "We help coaches, consultants, and service providers generate more qualified leads, book more sales calls, and close more clients through done-for-you appointment setting and sales closing.",
   },
   services: [
     {
@@ -223,23 +223,43 @@ export const servicesPage = {
         { title: "Instagram & LinkedIn DM management", body: "" },
       ],
     },
+    // Item 3 & 4 per client doc — copy drafted in the existing house style; refine with client.
     {
-      key: "ai",
-      name: "AI Sales Systems",
-      tag: "Automate outreach, follow-ups, scheduling & CRM",
+      key: "phone",
+      name: "Phone Closing",
+      tag: "High-ticket closers running your sales calls end-to-end",
       whatWeDo:
-        "AI-driven systems that automate outreach, follow-ups, scheduling and CRM so no qualified lead ever goes cold.",
+        "Trained phone closers take your booked calls and close them in your voice — running discovery, handling objections and collecting payment, so every qualified call has the best chance of becoming a client.",
       whatYouGet: [
-        "Never let a qualified lead go cold",
-        "Automated multi-channel follow-up",
-        "Calendar & scheduling on autopilot",
-        "A clean CRM that runs itself",
+        "More booked calls converted into paying clients",
+        "Objections handled by experienced closers",
+        "A consistent, proven call framework",
+        "Full call tracking and recordings for review",
       ],
       included: [
-        { title: "Multi-channel follow systems", body: "" },
-        { title: "Omni-channel outreach automation", body: "" },
-        { title: "Calendar & scheduling automation", body: "" },
-        { title: "CRM infrastructure setup", body: "" },
+        { title: "Discovery & qualification on every call", body: "" },
+        { title: "Objection handling & negotiation", body: "" },
+        { title: "Payment collection & follow-up", body: "" },
+        { title: "Call recording, tracking & feedback", body: "" },
+      ],
+    },
+    {
+      key: "funnels",
+      name: "Sales Funnels & Ads",
+      tag: "Paid traffic and funnels that feed your pipeline",
+      whatWeDo:
+        "We build and run the funnels and paid campaigns that put qualified leads into your pipeline — landing pages, ad creative and tracking, optimized to your offer so demand stays predictable.",
+      whatYouGet: [
+        "A steady flow of inbound qualified leads",
+        "Funnels built and optimized around your offer",
+        "Ad campaigns managed and tracked end-to-end",
+        "Clear reporting on spend, leads and ROI",
+      ],
+      included: [
+        { title: "Landing page & funnel build", body: "" },
+        { title: "Ad creative & campaign management", body: "" },
+        { title: "Tracking & conversion optimization", body: "" },
+        { title: "Performance reporting", body: "" },
       ],
     },
   ],
@@ -370,13 +390,15 @@ export const careers: Record<
   CareerKey,
   { role: string; title: string; subtitle: string; intro: string; videoId: string; apply: string }
 > = {
+  // Sales Closer page (nav: Careers > Sales Closer -> /career-va).
   "career-va": {
-    role: "Virtual Assistant",
+    role: "High-Ticket Sales Closer",
     title: "We're hiring",
-    subtitle: "Take your VA career to the next level with premium clients and expert training.",
-    intro: "Get trained, get placed with high-quality global clients, and build a reliable income.",
+    subtitle:
+      "We place trained closers into multi-7 & 8-figure personal brands that invest in traffic, systems and scalable sales.",
+    intro: "Base pay and commissions included. Get trained, get placed, and close for high-volume brands.",
     videoId: "8AHPXm9Y6mI",
-    apply: "/contact?role=Virtual%20Assistant",
+    apply: "/contact?role=High-Ticket%20Sales%20Closer",
   },
   "career-clg": {
     role: "Social Media Account Manager",
@@ -388,13 +410,13 @@ export const careers: Record<
     apply: "/contact?role=Social%20Media%20Account%20Manager",
   },
   "career-setters": {
-    role: "Appointment Setter",
+    role: "High-Ticket Appointment Setter",
     title: "We're hiring",
     subtitle:
       "We place skilled appointment setters into multi-7 & 8-figure personal brands that invest in traffic, systems and scalable sales.",
     intro: "Base pay and commissions included. Get trained, get placed, and grow with high-volume brands.",
     videoId: "8AHPXm9Y6mI",
-    apply: "/contact?role=Appointment%20Setter",
+    apply: "/contact?role=High-Ticket%20Appointment%20Setter",
   },
 };
 

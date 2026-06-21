@@ -43,7 +43,7 @@ export const hero = {
   microAuthor: { name: "Gilad Hanina", role: "Founder & CEO, AOS Media" },
   title: ["Fill Your Calendar.", "Close More Deals."],
   subtitle:
-    "We help coaches, consultants and service providers scale revenue with done-for-you appointment setting and DM closing — so you stay focused on delivering results while we handle your pipeline.",
+    "We help coaches, consultants, and service providers generate more qualified leads, book more sales calls, and close more clients through done-for-you appointment setting and sales closing.",
   primaryCta: { label: "Book a Call", href: "/contact" },
   secondaryCta: { label: "Explore Services", href: "/services" },
   // Right-side hero video (gold-glow frame). Swap in the real showreel when ready by
@@ -63,9 +63,9 @@ export const hero = {
 
 // Homepage stats band (replaces the press band, just under the hero).
 export const homeStats = [
-  { value: "$1M+", label: "Revenue generated for clients" },
-  { value: "100+", label: "Niches & offers served" },
-  { value: "24/7", label: "Always-on pipeline" },
+  { value: "$10 Million+", label: "Cash Collected For Clients" },
+  { value: "2000+", label: "Qualified Scheduled Meetings" },
+  { value: "15+", label: "Countries" },
 ];
 
 export const process = {
@@ -197,7 +197,7 @@ export const results = {
 // "Who We Help & What We Do" — carried over from the live pollinext.com (client request).
 export const whoWeHelp = {
   eyebrow: "Who we help & what we do",
-  title: "Built for coaches, consultants & creators",
+  title: "Built for coaches, consultants, creators & service providers",
   subtitle:
     "We help coaches, consultants, creators and service providers build predictable revenue systems that run without them.",
   cards: [
@@ -309,6 +309,38 @@ export const caseStudies = {
         { value: "24/7", label: "Always-on setting" },
       ],
     },
+    {
+      category: "E-commerce",
+      client: "Paul Lee",
+      video: "paul-lee",
+      title: "How Paul Lee generated ~$10K in his first 7 days",
+      body: "We plugged a trained setting + closing motion into Paul's offer and turned existing demand into booked, qualified calls — driving close to $10K in new sales inside the first week.",
+      highlights: [
+        "Setting + closing motion deployed fast",
+        "Existing demand converted into booked calls",
+        "Revenue inside the first 7 days",
+      ],
+      stats: [
+        { value: "~$10K", label: "In first 7 days" },
+        { value: "7 days", label: "To first revenue" },
+      ],
+    },
+    {
+      category: "Coaching",
+      client: "Eugene Yao",
+      video: "eugene-yao",
+      title: "How Eugene Yao handled 10,000+ leads without dropping quality",
+      body: "We built the systems and team to engage, qualify and route a high volume of leads — so Eugene could handle 10,000+ conversations while only spending time on the ready-to-buy ones.",
+      highlights: [
+        "High-volume lead engagement at scale",
+        "Qualification that protects calendar time",
+        "Only ready-to-buy prospects booked",
+      ],
+      stats: [
+        { value: "10,000+", label: "Leads handled" },
+        { value: "100%", label: "Done-for-you" },
+      ],
+    },
   ],
 };
 
@@ -392,7 +424,7 @@ export const problems = {
 
 export const founder = {
   eyebrow: "Meet the founder",
-  title: "Building impact beyond business",
+  title: "Building Impact Beyond Business",
   name: "Jathin VM",
   role: "Founder, Pollinext",
   image: "/founder.jpg",
@@ -401,7 +433,11 @@ export const founder = {
     "Today Jathin leads a trained team of setters and closers who plug into your brand, fill your calendar with qualified buyers, and close in your voice — so you stay focused on delivering results.",
   ],
   stats: [] as { value: string; label: string }[],
-  cta: { label: "Work with the team", href: "/contact" },
+  // Two CTAs per client doc (SECTION 7): Learn More -> About, Contact Us -> Contact.
+  ctas: [
+    { label: "Learn More", href: "/aboutus", variant: "dark" as const },
+    { label: "Contact Us", href: "/contact", variant: "gold" as const },
+  ],
 };
 
 export const testimonials = {
@@ -414,6 +450,10 @@ export const testimonials = {
     { label: "View More", href: "/testimonials", variant: "dark" as const },
     { label: "Book A Call", href: "/contact", variant: "gold" as const },
   ],
+  // Heading for the global quote-wall marquee (per client doc, SECTION 10).
+  marqueeEyebrow: "Testimonials",
+  marqueeTitle: "What Clients Across the Globe Say About Pollinext",
+  marqueeSubtitle: "Hear from coaches, consultants, and creators who've worked with us.",
   // Self-hosted vertical (9:16) reels in /public/testi (slug.mp4 + slug.jpg poster).
   // Compressed from Jathin's raw exports — play inline in a fullscreen lightbox.
   videos: [
@@ -523,10 +563,12 @@ export const roi = {
 // TODO(client): supply the real YouTube IDs. Cards with an empty `youtubeId` show the
 // poster + a disabled-looking button; set the id and the card becomes a playable thumb.
 export const vsl = {
-  eyebrow: "Free masterclass",
-  title: ["Insights to Strengthen Your", "Outbound & DM Sales Systems"],
+  eyebrow: "More From Pollinext",
+  title: ["Insights to Strengthen", "Sales Systems"],
   subtitle:
     "Discover practical strategies, sales psychology and data-backed frameworks for improving conversions across every touchpoint.",
+  // Section-level CTA per client doc (SECTION 8): View More -> YouTube channel.
+  viewMore: { label: "View More", href: "https://www.youtube.com/@pollinext" },
   videos: [
     {
       youtubeId: "",
@@ -552,16 +594,14 @@ export const vsl = {
 /* PLACEHOLDER PRICING — confirm exact figures with client before launch.
    Cards support either a numeric price (with monthly/yearly) or a "Custom" string. */
 export const pricing = {
-  eyebrow: "Pricing",
-  title: "Our Plans",
-  note: "Every engagement is scoped to your offer — book a call for an exact quote.",
+  eyebrow: "Engagements",
+  title: "How We Work Together",
+  note: "Every engagement is built around your offer — book a call to map the right fit.",
   tiers: [
     {
       icon: "single",
       name: "Launch",
       desc: "For coaches & consultants validating and filling their first pipeline.",
-      price: "Custom",
-      kicker: "Scoped to your offer",
       cta: { label: "Book a Call", href: "/contact", style: "dark" as const },
       features: [
         "Dedicated appointment setter",
@@ -574,8 +614,6 @@ export const pricing = {
       icon: "double",
       name: "Scale",
       desc: "For brands ready to keep a high-ticket calendar consistently full.",
-      price: "Custom",
-      kicker: "Most chosen engagement",
       popular: true,
       cta: { label: "Book a Call", href: "/contact", style: "white" as const },
       features: [
@@ -590,8 +628,6 @@ export const pricing = {
       icon: "molecule",
       name: "Partner",
       desc: "For agencies and high-volume offers needing a full revenue engine.",
-      price: "Custom",
-      kicker: "Enterprise partnership",
       cta: { label: "Book a Call", href: "/contact", style: "dark" as const },
       features: [
         "Full setting + closing team",

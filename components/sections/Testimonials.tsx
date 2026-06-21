@@ -111,6 +111,19 @@ export function Testimonials({ show = "all" }: { show?: "all" | "video" | "marqu
         </>
       )}
 
+      {/* Heading for the standalone global marquee (homepage SECTION 10) — only when
+          the marquee is shown on its own, not when stacked under the video reel. */}
+      {showMarquee && !showVideos && (
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <SectionHeading
+            eyebrow={testimonials.marqueeEyebrow}
+            title={testimonials.marqueeTitle}
+            subtitle={testimonials.marqueeSubtitle}
+            center
+          />
+        </div>
+      )}
+
       {showMarquee && (
         <Reveal
           className={`group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] ${

@@ -7,12 +7,14 @@ import { callsBooked } from "@/lib/content";
 export function CallsBooked() {
   return (
     <section id="calls-booked" className="relative py-24">
-      <div className="mx-auto max-w-3xl px-4 text-center">
+      <div className="mx-auto max-w-4xl px-4 text-center">
         <SectionHeading
           center
           eyebrow={callsBooked.eyebrow}
           title={callsBooked.title}
           subtitle={callsBooked.subtitle}
+          // keep "Calls Being Booked Daily" on one line on desktop (per client doc)
+          titleClassName="!text-[clamp(2rem,4.5vw,3rem)] lg:whitespace-nowrap"
         />
       </div>
       <Reveal className="mt-12 px-4">

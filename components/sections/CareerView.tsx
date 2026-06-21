@@ -11,7 +11,12 @@ export function CareerView({ which }: { which: CareerKey }) {
   const c = careers[which];
   return (
     <>
-      <PageHero eyebrow={c.title} title={c.role} subtitle={c.subtitle}>
+      <PageHero
+        eyebrow={c.title}
+        eyebrowClassName="!text-base !tracking-[0.2em] text-gold sm:!text-lg"
+        title={c.role}
+        subtitle={c.subtitle}
+      >
         <a href={c.apply} className="btn-gold px-6 py-3.5">
           Join the team
         </a>

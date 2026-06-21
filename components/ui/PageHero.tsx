@@ -7,16 +7,18 @@ type Props = {
   title: ReactNode;
   subtitle?: string;
   children?: ReactNode;
+  /** Optional override to enlarge the eyebrow (e.g. the careers "We're hiring" label). */
+  eyebrowClassName?: string;
 };
 
 /** Consistent centered hero for inner pages (accounts for the fixed nav). */
-export function PageHero({ eyebrow, title, subtitle, children }: Props) {
+export function PageHero({ eyebrow, title, subtitle, children, eyebrowClassName }: Props) {
   return (
     <section className="relative px-4 pb-12 pt-36 sm:pt-44">
       <Orb variant="glow" size={460} className="-right-44 -top-16" />
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <Reveal>
-          <p className="eyebrow">{eyebrow}</p>
+          <p className={`eyebrow ${eyebrowClassName ?? ""}`}>{eyebrow}</p>
         </Reveal>
         <Reveal delay={0.06}>
           <h1

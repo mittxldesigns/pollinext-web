@@ -56,9 +56,17 @@ export function Founder() {
           </Reveal>
           <Reveal delay={0.24}>
             <div className="mt-9 flex flex-wrap items-center gap-5">
-              <a href={founder.cta.href} className="btn-gold px-6 py-3.5">
-                {founder.cta.label}
-              </a>
+              <div className="flex flex-wrap gap-3">
+                {founder.ctas.map((c) => (
+                  <a
+                    key={c.label}
+                    href={c.href}
+                    className={`${c.variant === "gold" ? "btn-gold" : "btn-dark"} px-6 py-3.5`}
+                  >
+                    {c.label}
+                  </a>
+                ))}
+              </div>
               <div>
                 <p className="font-semibold text-white">{founder.name}</p>
                 <p className="text-sm text-dim">{founder.role}</p>

@@ -437,6 +437,7 @@ export const testimonials = {
       name: "Harut",
       role: "YouTube Automation & Business Coach",
       tint: "dark",
+      photo: "/testi/avatars/harut.jpg",
     },
     {
       quote: "Jathin has helped us grow the clientele, the business, and the impact!",
@@ -450,18 +451,21 @@ export const testimonials = {
       name: "Anais Zanotti",
       role: "Fitness Coach",
       tint: "dark",
+      photo: "/testi/avatars/anais.jpg",
     },
     {
       quote: "Highly recommend him if you want to handle a large volume of leads!",
       name: "Eugene Yao",
       role: "Health & Wellness Coach",
       tint: "gold",
+      photo: "/testi/avatars/eugene.jpg",
     },
     {
       quote: "Jathin and his team can be a game changer for your business!",
       name: "Tanner Shuck",
       role: "Founder, True Strength",
       tint: "dark",
+      photo: "/testi/avatars/tanner.jpg",
     },
     {
       quote:
@@ -477,6 +481,7 @@ export const testimonials = {
       name: "Nishkarsh Sharma",
       role: "E-commerce Expert & Business Coach",
       tint: "dark",
+      photo: "/testi/avatars/nishkarsh.jpg",
     },
     {
       quote: "Love the consistency in results — working with you has been phenomenal!",
@@ -491,6 +496,7 @@ export const testimonials = {
       name: "Thomas Thoresen",
       role: "Fat Loss & Strength Coach",
       tint: "dark",
+      photo: "/testi/avatars/thomas.jpg",
     },
   ],
 };

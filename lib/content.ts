@@ -406,9 +406,14 @@ export const founder = {
 
 export const testimonials = {
   eyebrow: "Testimonials",
-  title: "What Our Clients Say",
+  title: "Client Success Stories",
   subtitle:
-    "Real founders, coaches and operators on what changed once Pollinext took over their pipeline — booked calls, closed deals and revenue on autopilot.",
+    "Hear directly from business owners who transformed their sales pipeline with POLLINEXT.",
+  // CTA pair shown below the video reel (per client doc, SECTION 4).
+  ctas: [
+    { label: "View More", href: "/testimonials", variant: "dark" as const },
+    { label: "Book A Call", href: "/contact", variant: "gold" as const },
+  ],
   // Self-hosted vertical (9:16) reels in /public/testi (slug.mp4 + slug.jpg poster).
   // Compressed from Jathin's raw exports — play inline in a fullscreen lightbox.
   videos: [

@@ -96,6 +96,18 @@ export function Testimonials({ show = "all" }: { show?: "all" | "video" | "marqu
           <Reveal className="mt-12">
             <TestimonialReel videos={testimonials.videos} />
           </Reveal>
+          {/* CTA pair below the reel (per client doc, SECTION 4) */}
+          <Reveal className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            {testimonials.ctas.map((c) => (
+              <a
+                key={c.label}
+                href={c.href}
+                className={`${c.variant === "gold" ? "btn-gold" : "btn-dark"} px-7 py-3.5`}
+              >
+                {c.label}
+              </a>
+            ))}
+          </Reveal>
         </>
       )}
 

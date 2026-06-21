@@ -20,7 +20,12 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
   const [open, setOpen] = useState<ReelVideo | null>(null);
   const trapRef = useFocusTrap<HTMLDivElement>(!!open);
   const railRef = useRef<HTMLDivElement>(null);
-  const pausedRef = useRef(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  // autoscroll pauses while the pointer is over the section (read live from the DOM
+  // `:hover` state so there are no enter/leave event gaps) OR for a short window after
+  // any manual interaction (arrow click, drag, swipe) so the rAF loop never fights the
+  // smooth scrollBy that the controls trigger.
+  const pausedUntilRef = useRef(0);
   const drag = useRef<{ active: boolean; startX: number; startLeft: number; moved: boolean }>({
     active: false,
     startX: 0,
@@ -36,7 +41,8 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let raf = 0;
     const tick = () => {
-      if (!pausedRef.current && !open) {
+      const hovering = wrapRef.current?.matches(":hover") ?? false;
+      if (!hovering && Date.now() >= pausedUntilRef.current && !open) {
         rail.scrollLeft += 0.6;
         const half = rail.scrollWidth / 2;
         if (rail.scrollLeft >= half) rail.scrollLeft -= half;
@@ -62,6 +68,8 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
   const step = useCallback((dir: 1 | -1) => {
     const rail = railRef.current;
     if (!rail) return;
+    // hold the autoscroll off long enough for the smooth scroll to settle
+    pausedUntilRef.current = Date.now() + 1600;
     const card = rail.querySelector<HTMLElement>("[data-card]");
     const by = card ? card.offsetWidth + 20 : rail.clientWidth * 0.8;
     rail.scrollBy({ left: dir * by, behavior: "smooth" });
@@ -72,7 +80,7 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
     const rail = railRef.current;
     if (!rail || e.pointerType === "touch") return;
     drag.current = { active: true, startX: e.clientX, startLeft: rail.scrollLeft, moved: false };
-    pausedRef.current = true;
+    pausedUntilRef.current = Date.now() + 1600;
   };
   const onPointerMove = (e: React.PointerEvent) => {
     const rail = railRef.current;
@@ -80,13 +88,14 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
     const dx = e.clientX - drag.current.startX;
     if (Math.abs(dx) > 4) drag.current.moved = true;
     rail.scrollLeft = drag.current.startLeft - dx;
+    pausedUntilRef.current = Date.now() + 1600;
   };
   const endDrag = () => {
     drag.current.active = false;
   };
 
   return (
-    <div className="relative">
+    <div ref={wrapRef} className="relative" onMouseLeave={endDrag}>
       {/* arrow controls */}
       <button
         type="button"
@@ -107,14 +116,9 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
 
       <div
         ref={railRef}
-        onMouseEnter={() => (pausedRef.current = true)}
-        onMouseLeave={() => {
-          pausedRef.current = false;
-          endDrag();
-        }}
-        onFocusCapture={() => (pausedRef.current = true)}
-        onBlurCapture={() => (pausedRef.current = false)}
-        onTouchStart={() => (pausedRef.current = true)}
+        onFocusCapture={() => (pausedUntilRef.current = Date.now() + 4000)}
+        onTouchStart={() => (pausedUntilRef.current = Date.now() + 5000)}
+        onTouchMove={() => (pausedUntilRef.current = Date.now() + 5000)}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}

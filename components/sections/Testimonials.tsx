@@ -1,7 +1,7 @@
 import { Quote } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { TestimonialReel } from "@/components/ui/TestimonialReel";
+import { TestimonialSlideshow } from "@/components/ui/TestimonialSlideshow";
 import { testimonials } from "@/lib/content";
 
 function initials(name: string) {
@@ -92,9 +92,9 @@ export function Testimonials({ show = "all" }: { show?: "all" | "video" | "marqu
               center
             />
           </div>
-          {/* sliding row of vertical testimonial reels — plays in a fullscreen lightbox */}
-          <Reveal className="mt-12">
-            <TestimonialReel videos={testimonials.videos} />
+          {/* old-site-style paged slideshow: 3 video cards w/ name + quote, autoadvance */}
+          <Reveal className="mt-10">
+            <TestimonialSlideshow videos={testimonials.videos} />
           </Reveal>
           {/* CTA pair below the reel (per client doc, SECTION 4) */}
           <Reveal className="mt-10 flex flex-wrap items-center justify-center gap-4">

@@ -7,7 +7,7 @@ export const aboutPage = {
     eyebrow: "About Pollinext",
     title: "Never worry about lead gen again",
     subtitle:
-      "Pollinext is a performance-driven sales engine — built from real volume, real testing and proven frameworks — that fills your calendar and closes in your voice.",
+      "Pollinext is a performance-driven sales engine, built from real volume, real testing and proven frameworks, that fills your calendar and closes in your voice.",
   },
   stats: [
     { value: "$1M+", label: "Revenue generated for clients" },
@@ -20,8 +20,8 @@ export const aboutPage = {
     items: [
       {
         tag: "Problem 01",
-        title: "You're creating content and generating interest — but nothing converts.",
-        body: "You do everything right on the front end — the content, the authority, the visibility. People watch, DM, and show intent. But the conversations fall apart:",
+        title: "You're creating content and generating interest, but nothing converts.",
+        body: "You do everything right on the front end, the content, the authority, the visibility. People watch, DM, and show intent. But the conversations fall apart:",
         points: [
           "Slow responses",
           "Robotic scripts",
@@ -31,35 +31,35 @@ export const aboutPage = {
           "Burned leads you paid for",
         ],
         close:
-          "Perfectly good prospects slip through the cracks — not because your offer is weak, but because your sales ecosystem is.",
+          "Perfectly good prospects slip through the cracks, not because your offer is weak, but because your sales ecosystem is.",
       },
       {
         tag: "Problem 02",
         title: "You don't know where your next qualified lead will come from.",
-        body: "One month is full. The next is dry. Cash flow becomes a guessing game — your calendar depends on luck, referrals, or the algorithm.",
+        body: "One month is full. The next is dry. Cash flow becomes a guessing game, your calendar depends on luck, referrals, or the algorithm.",
         points: [
           "“Will I get enough leads this week?”",
           "“Will people reply today?”",
           "“Will this be another slow month?”",
         ],
-        close: "This unpredictability chokes growth — you can't scale what you can't predict.",
+        close: "This unpredictability chokes growth, you can't scale what you can't predict.",
       },
     ],
   },
   why: {
     eyebrow: "Why Pollinext",
-    title: "Powerful content and predictable sales — working together like a machine",
+    title: "Powerful content and predictable sales, working together like a machine",
     wrong: {
       title: "The wrong people handling your conversations",
       body: "People who treat your business as a side gig, use templates instead of psychology, respond late, burn leads, and destroy trust.",
     },
     right: {
       title: "The right systems that take 90% off your plate",
-      body: "A fully trained sales force built around human behaviour, not scripts — so your pipeline runs without you.",
+      body: "A fully trained sales force built around human behaviour, not scripts, so your pipeline runs without you.",
     },
     gives: [
       "Setters & closers trained in real sales psychology",
-      "Instant replacements — zero downtime",
+      "Instant replacements, zero downtime",
       "A dedicated Setter Manager",
       "Proven frameworks across 100+ niches",
       "Omni-channel outreach systems",
@@ -72,8 +72,8 @@ export const aboutPage = {
     eyebrow: "Our mission",
     title: "Why this work matters",
     paragraphs: [
-      "Pollinext wasn't born as a service provider — it was born as a vehicle for impact.",
-      "Before becoming a sales strategist, our founder Jathin VM cared deeply about environmental sustainability, animal welfare, and the problems most people overlook. He learned early that you can't fix major problems without major resources — and major resources require sales.",
+      "Pollinext wasn't born as a service provider, it was born as a vehicle for impact.",
+      "Before becoming a sales strategist, our founder Jathin VM cared deeply about environmental sustainability, animal welfare, and the problems most people overlook. He learned early that you can't fix major problems without major resources, and major resources require sales.",
       "Every business we scale, every system we build, every revenue milestone we hit fuels a deeper mission: creating wealth that funds high-impact projects in sustainability and animal protection. Your success creates our resources; our resources create real-world impact.",
     ],
   },
@@ -84,7 +84,7 @@ export const howItWorksPage = {
     eyebrow: "How it works",
     title: "From discovery to deployment in 7 strategic steps",
     subtitle:
-      "Your complete onboarding journey — exactly how we plug a trained sales engine into your business.",
+      "Your complete onboarding journey, exactly how we plug a trained sales engine into your business.",
   },
   steps: [
     {
@@ -114,7 +114,7 @@ export const howItWorksPage = {
     {
       n: "3",
       title: "Framework Development & Review",
-      timeline: "1–2 days",
+      timeline: "1-2 days",
       intro: "We build your custom DM-closing and appointment-setting framework.",
       points: [
         { label: "Conversational assets", body: "Scripts, openers, qualification questions and objection handlers." },
@@ -127,10 +127,10 @@ export const howItWorksPage = {
       n: "4",
       title: "Deployment of Trained Setters & Closers",
       timeline: "1 day",
-      intro: "We deploy full-time trained setters and closers, each working 6–8 hour shifts.",
+      intro: "We deploy full-time trained setters and closers, each working 6-8 hour shifts.",
       points: [
         { label: "Peak-time coverage", body: "Covering your ideal customer's time zones (primarily US hours)." },
-        { label: "Full activity management", body: "All inbound and outbound handled — in your brand voice." },
+        { label: "Full activity management", body: "All inbound and outbound handled, in your brand voice." },
         { label: "Seamless brand integration", body: "Every message sounds authentically like you." },
       ],
       outcome: "Your pipeline activates immediately with trained pros representing your brand.",
@@ -143,7 +143,7 @@ export const howItWorksPage = {
       points: [
         { label: "Real-time dashboards", body: "Daily reports on Slack / Discord / WhatsApp and live Google Sheets." },
         { label: "Weekly strategy reports", body: "Trends, conversions and content quality to inform next steps." },
-        { label: "Regular check-ins", body: "Daily internal QA and 1–2 weekly review calls." },
+        { label: "Regular check-ins", body: "Daily internal QA and 1-2 weekly review calls." },
       ],
       outcome: "Complete transparency and control over your sales operations.",
     },
@@ -187,7 +187,7 @@ export const servicesPage = {
       name: "Appointment Setting",
       tag: "Built for coaches, consultants & high-ticket service providers",
       whatWeDo:
-        "We find the right people, engage them across platforms, qualify them, and book them directly onto your calendar — handling everything before the call. We build warm, relationship-driven conversations where prospects feel understood, uncover their goals and urgency, then run pre-call nurturing and reminders to lift show-up rates.",
+        "We find the right people, engage them across platforms, qualify them, and book them directly onto your calendar, handling everything before the call. We build warm, relationship-driven conversations where prospects feel understood, uncover their goals and urgency, then run pre-call nurturing and reminders to lift show-up rates.",
       whatYouGet: [
         "A calendar filled with high-intent, ready-to-buy prospects",
         "A predictable flow of qualified sales calls every week",
@@ -197,7 +197,7 @@ export const servicesPage = {
       ],
       included: [
         { title: "We find your ideal buyers", body: "We research and build a list of people who fit your offer." },
-        { title: "We talk to them everywhere", body: "Instagram, LinkedIn, email, SMS — whatever channel works best." },
+        { title: "We talk to them everywhere", body: "Instagram, LinkedIn, email, SMS, whatever channel works best." },
         { title: "We qualify them", body: "The right questions so only serious, ready-to-buy people get booked." },
         { title: "We book them onto your calendar", body: "No more no-shows or unqualified time-wasters." },
         { title: "We manage your CRM", body: "Everyone tracked, pipeline clean, full visibility." },
@@ -207,9 +207,9 @@ export const servicesPage = {
     {
       key: "dm",
       name: "DM Closing",
-      tag: "DM-to-sale systems for $100–$1,000+ offers",
+      tag: "DM-to-sale systems for $100-$1,000+ offers",
       whatWeDo:
-        "Trained closers handle nurturing, rapport and closing in your voice — turning existing conversations into sales without you living in the inbox.",
+        "Trained closers handle nurturing, rapport and closing in your voice, turning existing conversations into sales without you living in the inbox.",
       whatYouGet: [
         "More closed sales from conversations you already have",
         "Objections handled by trained closers",
@@ -223,13 +223,13 @@ export const servicesPage = {
         { title: "Instagram & LinkedIn DM management", body: "" },
       ],
     },
-    // Item 3 & 4 per client doc — copy drafted in the existing house style; refine with client.
+    // Item 3 & 4 per client doc, copy drafted in the existing house style; refine with client.
     {
       key: "phone",
       name: "Phone Closing",
       tag: "High-ticket closers running your sales calls end-to-end",
       whatWeDo:
-        "Trained phone closers take your booked calls and close them in your voice — running discovery, handling objections and collecting payment, so every qualified call has the best chance of becoming a client.",
+        "Trained phone closers take your booked calls and close them in your voice, running discovery, handling objections and collecting payment, so every qualified call has the best chance of becoming a client.",
       whatYouGet: [
         "More booked calls converted into paying clients",
         "Objections handled by experienced closers",
@@ -248,7 +248,7 @@ export const servicesPage = {
       name: "Sales Funnels & Ads",
       tag: "Paid traffic and funnels that feed your pipeline",
       whatWeDo:
-        "We build and run the funnels and paid campaigns that put qualified leads into your pipeline — landing pages, ad creative and tracking, optimized to your offer so demand stays predictable.",
+        "We build and run the funnels and paid campaigns that put qualified leads into your pipeline, landing pages, ad creative and tracking, optimized to your offer so demand stays predictable.",
       whatYouGet: [
         "A steady flow of inbound qualified leads",
         "Funnels built and optimized around your offer",
@@ -273,7 +273,7 @@ export const contactPage = {
 };
 
 /* ============================================================================
-   Changelog — what's shipped, newest first. Add a new entry at the top each
+   Changelog, what's shipped, newest first. Add a new entry at the top each
    time the site changes so the whole team can see what moved.
    ========================================================================== */
 
@@ -292,17 +292,17 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "June 10, 2026",
     iso: "2026-06-10",
-    title: "Call feedback — image ticker, video reels, masterclass sizing",
+    title: "Call feedback, image ticker, video reels, masterclass sizing",
     summary:
       "Template changes from the June 10 review call. Real videos/photos/images come next from your Drive.",
     changes: [
-      { type: "changed", text: "“Our Recent Work” is now an image-only horizontal ticker — no text cards, with the golden glow baked into each tile so the image is the focus." },
+      { type: "changed", text: "“Our Recent Work” is now an image-only horizontal ticker, no text cards, with the golden glow baked into each tile so the image is the focus." },
       { type: "changed", text: "Client video testimonials now slide as vertical 9:16 reel tiles and play in a portrait popup (built to drop your re-done vertical videos straight in)." },
       { type: "changed", text: "SECTION 8 masterclass video is larger with a stronger golden glow." },
       { type: "changed", text: "Standardised the testimonial quote tiles to one uniform size; they now show a profile photo when provided (initials until then)." },
     ],
     pending: [
-      "Drive links: vertical testimonial videos, team/profile photos, and the Recent-Work tiles — recommended size 1080×1920 (9:16 portrait).",
+      "Drive links: vertical testimonial videos, team/profile photos, and the Recent-Work tiles, recommended size 1080×1920 (9:16 portrait).",
       "Final copy for every section.",
       "An INR duplicate for polynext.in (send the .in services + membership differences).",
     ],
@@ -317,7 +317,7 @@ export const changelog: ChangelogEntry[] = [
       { type: "changed", text: "Homepage now follows the doc order: Hero → Stats → Testimonials (video) → Pricing → Results → Founder → Masterclass → ROI → Testimonials (wall) → Closing." },
       { type: "removed", text: "Deleted the hero micro-quote ribbon (the “Booking qualified calls live” pill, the $1M-in-sales quote and the Gilad Hanina chip) per the doc's Delete section." },
       { type: "removed", text: "Removed the Process, Services grid, booking-proof, FAQ and Contact sections from the homepage (they aren't in the doc's homepage). The /services, /contact and other pages are unchanged." },
-      { type: "added", text: "Added SECTION 8 — the “Appointment Setting Masterclass” / Insights section, carried over from the old pollinext.com (video is a placeholder until the real one is supplied)." },
+      { type: "added", text: "Added SECTION 8, the “Appointment Setting Masterclass” / Insights section, carried over from the old pollinext.com (video is a placeholder until the real one is supplied)." },
       { type: "changed", text: "Split the testimonials into a video section (early) and a quote wall (later), matching the doc." },
     ],
     pending: [
@@ -328,15 +328,15 @@ export const changelog: ChangelogEntry[] = [
   {
     date: "June 9, 2026",
     iso: "2026-06-09",
-    title: "Visual polish — tickers & fixes",
+    title: "Visual polish, tickers & fixes",
     summary:
       "Tightened the homepage visuals: proof sections now move on their own, and the hero video points somewhere useful.",
     changes: [
-      { type: "fixed", text: "Every video (hero, testimonials, careers) now plays in an on-page popup — no more jumping out to YouTube. The page never leaves the site." },
+      { type: "fixed", text: "Every video (hero, testimonials, careers) now plays in an on-page popup, no more jumping out to YouTube. The page never leaves the site." },
       { type: "changed", text: "Tightened outbound links: only the Instagram profile opens off-site (in a new tab); everything else stays on pollinext." },
       { type: "changed", text: "“Our Recent Work” and “Calls being booked daily” are now smooth auto-scrolling tickers (previously a manual rail that looked stuck and cut off)." },
       { type: "fixed", text: "Ticker edges now fade out instead of hard-cutting cards; tickers pause on hover." },
-      { type: "fixed", text: "Mobile pass — no text or image cut-offs across the homepage." },
+      { type: "fixed", text: "Mobile pass, no text or image cut-offs across the homepage." },
     ],
     pending: [
       "Replace the hero placeholder with your actual showreel (set hero.video.youtubeId or .mp4 in lib/content.ts).",
@@ -348,7 +348,7 @@ export const changelog: ChangelogEntry[] = [
     iso: "2026-06-09",
     title: "Homepage refinement pass",
     summary:
-      "Restructured the homepage and navigation from the latest design notes — cleaner hero, no floating gold spheres, and horizontal proof rails.",
+      "Restructured the homepage and navigation from the latest design notes, cleaner hero, no floating gold spheres, and horizontal proof rails.",
     changes: [
       { type: "changed", text: "Navigation reordered to About · Results · Services · Careers · Book a Call." },
       { type: "removed", text: "Removed the standalone “How it Works” page; its full 7-step process now lives on the Services page." },
@@ -362,8 +362,8 @@ export const changelog: ChangelogEntry[] = [
     pending: [
       "Drop in the real hero showreel video (set hero.video.youtubeId or .mp4 in lib/content.ts).",
       "Final copywriting for every section (placeholder copy is in place).",
-      "Services section style A/B (two layout options) — pending your pick.",
-      "Dedicated Pre-Call VSL section and split Results / Testimonials pages — pending assets.",
+      "Services section style A/B (two layout options), pending your pick.",
+      "Dedicated Pre-Call VSL section and split Results / Testimonials pages, pending assets.",
       "Confirm whether the small gold-sphere icons on the pricing cards should also be replaced.",
     ],
   },
@@ -376,7 +376,7 @@ export const careerPillars = [
   },
   {
     title: "Client Placements",
-    body: "Once you're trained and ready, you're placed with high-quality clients — backed by ongoing support from our client success managers.",
+    body: "Once you're trained and ready, you're placed with high-quality clients, backed by ongoing support from our client success managers.",
   },
   {
     title: "Income Stability",
@@ -403,9 +403,9 @@ export const careers: Record<
   "career-clg": {
     role: "Social Media Account Manager",
     title: "We're hiring",
-    subtitle: "Your job should build your future with real-life skills — not just your CV.",
+    subtitle: "Your job should build your future with real-life skills, not just your CV.",
     intro:
-      "You'll be trained to manage the social media of global founders, influencers and celebrity brands — and learn how real business growth happens. (Get paid to do it.)",
+      "You'll be trained to manage the social media of global founders, influencers and celebrity brands, and learn how real business growth happens. (Get paid to do it.)",
     videoId: "8AHPXm9Y6mI",
     apply: "/contact?role=Social%20Media%20Account%20Manager",
   },
@@ -421,7 +421,7 @@ export const careers: Record<
 };
 
 /* ============================================================================
-   Legal pages — good-faith boilerplate for a done-for-you sales agency.
+   Legal pages, good-faith boilerplate for a done-for-you sales agency.
    Review with counsel before relying on them; jurisdiction set to India.
    ========================================================================== */
 
@@ -546,7 +546,7 @@ export const privacyPage: LegalDoc = {
       heading: "Information We Collect",
       body: ["We collect information you choose to provide and a limited amount of technical data:"],
       bullets: [
-        "Contact details you submit through our forms — such as your name, email address, brand or company name, and message;",
+        "Contact details you submit through our forms, such as your name, email address, brand or company name, and message;",
         "Communications you send us by email or social media;",
         "Basic usage and device data (such as pages visited and browser type) that may be collected automatically to keep the site secure and working.",
       ],

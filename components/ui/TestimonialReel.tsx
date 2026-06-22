@@ -34,7 +34,7 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
   });
   const row = [...videos, ...videos];
 
-  // auto-scroll loop — slow, seamless wrap at the half-way point
+  // auto-scroll loop, slow, seamless wrap at the half-way point
   useEffect(() => {
     const rail = railRef.current;
     if (!rail) return;
@@ -137,7 +137,7 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
               }}
               aria-hidden={clone || undefined}
               tabIndex={clone ? -1 : undefined}
-              aria-label={`Play testimonial: ${v.name} — ${v.role}`}
+              aria-label={`Play testimonial: ${v.name}, ${v.role}`}
               className="group/card relative block aspect-[9/16] w-[280px] shrink-0 select-none overflow-hidden rounded-3xl border border-gold/40 bg-black sm:w-[340px]"
               style={{
                 boxShadow:
@@ -147,7 +147,7 @@ export function TestimonialReel({ videos }: { videos: ReelVideo[] }) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={poster(v.slug)}
-                alt={`${v.name} — ${v.role}`}
+                alt={`${v.name}, ${v.role}`}
                 loading="lazy"
                 decoding="async"
                 draggable={false}

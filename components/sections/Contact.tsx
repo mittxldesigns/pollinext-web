@@ -22,7 +22,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
   const f = contact.form;
 
   // Careers pages link here as /contact?role=<role>; prefill the form so the
-  // applicant — and Jathin's inbox — start with the role already in context.
+  // applicant, and Jathin's inbox, start with the role already in context.
   useEffect(() => {
     const r = new URLSearchParams(window.location.search).get("role");
     if (r) {
@@ -43,7 +43,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
     }
 
     const subject = role
-      ? `Application — ${role} — ${data.get("name") || "website"}`
+      ? `Application, ${role}, ${data.get("name") || "website"}`
       : `New enquiry from ${data.get("name") || "website"}`;
 
     // No backend key configured → fall back to the visitor's mail client.
@@ -119,7 +119,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
 
         <Reveal delay={0.1}>
           <form onSubmit={onSubmit} className="card p-6 sm:p-8">
-            {/* honeypot — hidden from humans, catches bots */}
+            {/* honeypot, hidden from humans, catches bots */}
             <input
               type="checkbox"
               name="botcheck"
@@ -166,7 +166,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
             {status === "success" && (
               <p className="mt-3 text-center text-sm text-muted">
                 {WEB3FORMS_KEY
-                  ? "Thanks — your message is on its way. We'll be in touch shortly."
+                  ? "Thanks, your message is on its way. We'll be in touch shortly."
                   : "Opening your mail app to send…"}
               </p>
             )}

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Pollinext — Fill Your Calendar. Close More Deals.",
+    name: "Pollinext, Fill Your Calendar. Close More Deals.",
     short_name: "Pollinext",
     description:
       "Done-for-you appointment setting, DM closing & AI sales systems for coaches, consultants and service providers.",

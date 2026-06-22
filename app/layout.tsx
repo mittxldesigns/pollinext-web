@@ -12,9 +12,9 @@ const sora = Sora({
   display: "swap",
 });
 
-const title = "Pollinext — Fill Your Calendar. Close More Deals.";
+const title = "Pollinext, Fill Your Calendar. Close More Deals.";
 const description =
-  "Done-for-you appointment setting, DM closing, and AI sales systems that fill your calendar with qualified buyers — so coaches, consultants and service providers stay focused on closing.";
+  "Done-for-you appointment setting, DM closing, and AI sales systems that fill your calendar with qualified buyers, so coaches, consultants and service providers stay focused on closing.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Pollinext — Fill Your Calendar. Close More Deals.",
+        alt: "Pollinext, Fill Your Calendar. Close More Deals.",
       },
     ],
   },

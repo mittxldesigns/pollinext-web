@@ -43,7 +43,7 @@ export function RevealTeaser({ revealed, total }: { revealed: number; total: num
         </h2>
         <p className="mx-auto mt-4 max-w-md text-muted">
           The new Pollinext site is being revealed one section at a time. The next drop
-          lands tomorrow — check back daily.
+          lands tomorrow, check back daily.
         </p>
 
         <div className="mx-auto mt-8 h-2 w-full max-w-sm overflow-hidden rounded-full bg-surface-3">

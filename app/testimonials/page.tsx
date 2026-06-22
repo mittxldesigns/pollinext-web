@@ -9,7 +9,7 @@ import { brand } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "Real results from coaches, consultants and founders who scaled with Pollinext — booked calls, closed deals and $1M+ in client sales.",
+    "Real results from coaches, consultants and founders who scaled with Pollinext, booked calls, closed deals and $1M+ in client sales.",
   alternates: { canonical: "/testimonials" },
 };
 

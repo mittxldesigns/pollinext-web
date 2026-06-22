@@ -26,7 +26,7 @@ export function Nav({ links = nav.links }: { links?: typeof nav.links }) {
         }`}
       >
         <div className="flex items-center justify-between gap-4">
-          <a href="/" aria-label={`${brand.name} — home`} className="flex items-center">
+          <a href="/" aria-label={`${brand.name}, home`} className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.png" alt={brand.name} className="h-7 w-auto sm:h-8" />
           </a>

@@ -43,7 +43,7 @@ function OnboardingVisual() {
 }
 
 function DeployVisual() {
-  const agents = ["Setter — live", "Closer — live", "Manager — QA"];
+  const agents = ["Setter, live", "Closer, live", "Manager, QA"];
   return (
     <div className="relative rounded-2xl border border-line bg-black/40 p-5">
       <div className="flex flex-col gap-2.5">

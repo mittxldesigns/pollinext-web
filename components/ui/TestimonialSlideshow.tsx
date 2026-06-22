@@ -11,7 +11,7 @@ const mp4 = (slug: string) => `/testi/${slug}.mp4`;
 const poster = (slug: string) => `/testi/${slug}.jpg`;
 
 /**
- * "Client Success Stories" — paged slideshow matching the old pollinext.com section:
+ * "Client Success Stories", paged slideshow matching the old pollinext.com section:
  * 3 vertical video cards per view (1 on mobile, 2 on tablet) with the client's name +
  * a short quote below each. Scroll-snaps per card, paged via ◀ ▶ and dots, gently
  * auto-advances (pauses on hover or while the lightbox is open). Clicking a card opens
@@ -110,14 +110,14 @@ export function TestimonialSlideshow({ videos }: { videos: SlideVideo[] }) {
             <button
               type="button"
               onClick={() => setOpen(v)}
-              aria-label={`Play testimonial: ${v.name} — ${v.role}`}
+              aria-label={`Play testimonial: ${v.name}, ${v.role}`}
               className="group/card relative block aspect-[9/16] w-full overflow-hidden rounded-2xl border border-gold/40 bg-black"
               style={{ boxShadow: "0 0 0 1px rgba(216,168,92,0.22), 0 22px 60px -28px rgba(216,168,92,0.5)" }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={poster(v.slug)}
-                alt={`${v.name} — ${v.role}`}
+                alt={`${v.name}, ${v.role}`}
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"

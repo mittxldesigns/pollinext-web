@@ -95,9 +95,9 @@ function DmVisual() {
 
 function AutomationVisual() {
   const leads = [
-    { name: "Emma — coaching", msg: "Can you help me fill my calendar?", time: "09:45" },
-    { name: "Liam — agency", msg: "How fast do calls start coming in?", time: "11:12" },
-    { name: "Olivia — consulting", msg: "Looking to scale my high-ticket offer.", time: "12:45" },
+    { name: "Emma, coaching", msg: "Can you help me fill my calendar?", time: "09:45" },
+    { name: "Liam, agency", msg: "How fast do calls start coming in?", time: "11:12" },
+    { name: "Olivia, consulting", msg: "Looking to scale my high-ticket offer.", time: "12:45" },
   ];
   return (
     <div className="flex items-center gap-4">

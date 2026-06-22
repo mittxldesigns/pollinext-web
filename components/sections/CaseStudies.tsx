@@ -8,7 +8,7 @@ import { caseStudies } from "@/lib/content";
 // YouTube channel for the "View more" button (client to confirm final URL).
 const CHANNEL_URL = "https://www.youtube.com/@pollinext";
 
-/** Case studies — 4 cards, each a HORIZONTAL (16:9) video on top + write-up below. */
+/** Case studies, 4 cards, each a HORIZONTAL (16:9) video on top + write-up below. */
 export function CaseStudies() {
   return (
     <section id="case-studies" className="relative px-4 py-24">
@@ -59,7 +59,7 @@ export function CaseStudies() {
                 <article className="card-grad flex h-full flex-col gap-5 p-5 sm:p-6">
                   <VideoPlayer
                     {...(yt ? { youtubeId: yt } : { mp4, poster })}
-                    title={`${c.client} — case study`}
+                    title={`${c.client}, case study`}
                     triggerClassName="block w-full"
                   >
                     {frame}

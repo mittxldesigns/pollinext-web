@@ -83,7 +83,7 @@ export default function ServicesPage() {
             </Reveal>
           ))}
 
-          {/* CTA below the services list (per client doc — book-a-call under section 4) */}
+          {/* CTA below the services list (per client doc, book-a-call under section 4) */}
           <Reveal className="flex justify-center pt-4">
             <a href={brand.bookingUrl} className="btn-gold px-8 py-3.5">
               Book a Call
@@ -92,7 +92,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* How it works — merged in from the former standalone /how-it-works page */}
+      {/* How it works, merged in from the former standalone /how-it-works page */}
       <section className="relative px-4 py-16">
         <Orb variant="glow" size={420} className="-left-44 top-32" />
         <div className="relative z-10 mx-auto max-w-5xl">
@@ -132,7 +132,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="gold-soft mt-6 rounded-2xl p-4">
                     <p className="text-sm leading-relaxed text-white/90">
-                      <span className="font-semibold text-gold">Outcome — </span>
+                      <span className="font-semibold text-gold">Outcome, </span>
                       {s.outcome}
                     </p>
                   </div>

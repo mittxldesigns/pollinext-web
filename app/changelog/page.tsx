@@ -25,7 +25,7 @@ export default function ChangelogPage() {
       <PageHero
         eyebrow="Changelog"
         title="What's changed"
-        subtitle="A running log of updates to the Pollinext website — newest first."
+        subtitle="A running log of updates to the Pollinext website, newest first."
       >
         <a href={brand.bookingUrl} className="btn-gold px-6 py-3.5">
           Book a Call

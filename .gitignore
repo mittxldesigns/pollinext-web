@@ -42,3 +42,7 @@ next-env.d.ts
 
 # downloaded client-asset scratch (not used)
 public/testi/clients/
+
+# python virtualenvs (e.g. invoice/.venv used to render the PDFs)
+.venv/
+**/.venv/
